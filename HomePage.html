@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./styles/template.css">
+    
+</head>
+<!-- This portion of code is inspired by multiple YouTubers (True Coder, ime creative ) Followed "True Coder" for sliders -->
+<body>
+    <div class="circle"> </div>
+    <div class = "nav_box">
+        <nav>
+            <ul>
+                <li><div class="site-title">
+                    <img src="/images/Icon.png" class="icon">
+                    <h1>Lost & Found</h1></div></li>
+                <li><a href="">Report+</a></li>
+                <li><a href="">Community</a></li>
+                <li><a href="HomePage.html">Tickets</a></li>
+                <li><a href="index1.html">Resolved</a></li>
+                <li><a href="">User</a></li>
+            </ul>
+            
+        </nav>
+
+        <div class="search_panel"> <!--remove search panel part for template-->
+            <input type="text" id="search_input" name="search_input">
+            <select name="item_type" id="item_type">
+                <option value=" "> </option>
+                <option value="electronics">electronics</option>
+                <option value="IDs">IDs</option>
+                <option value="keys">keys</option>
+                <option value="personal_items">personal items</option>
+            </select>
+
+            <select name="search_date" id="search_date">
+                <option value=" ">Most recent </option>
+                <option value="Yesterday">Yesterday</option>
+                <option value="Last_week">Last week</option>
+                <option value="Last_month">Last month</option>
+            </select>
+
+            <button><a>Search</a></button>
+        </div>
+
+
+    </div>
+
+    <div class="your_part">
+        
+        <table id="ticket_info">
+            <tr>
+                <th>Ticket </th>
+                <td><label id="postID">...</label>######</td>
+            </tr>
+            <tr>
+                <th>Item Type </th>
+                <td><label id="itemType">...</label>key, ids, cards....</td>
+            </tr>
+            <tr>
+                <th>Lost on date </th>
+                <td><label id="dateLost">...</label>00/00/0000</td>
+            </tr>
+            <tr>
+                <th>Onwer </th>
+                <td><label id="userID">...</label>name</td>
+            </tr>
+            <tr><th>Description <label id="Description">...</label></th></tr>
+        </table>
+
+        <div class="post_image"></div>
+        <div id="contact_user_part"><button onclick="">Cotact User</button></div>
+
+    </div>
+
+   
+    <div id="slogan"><h1>"Your Lost Item is Our Priority"</h1></div>
+    <div id="chat_box_icon"><button onclick="toggleMessageBox()"><img src="images/message-icon.png" width="90px"></button></div>
+    
+    <div id="expended_message_box">
+        <!--shows big green rectancle when butto is clicked-->
+        
+    </div>
+
+</body>
+
+</html>
