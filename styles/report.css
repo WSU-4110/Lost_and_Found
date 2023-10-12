@@ -203,6 +203,11 @@ input {
     border-radius: 5px;
     border: 1px solid #ccc;
 }
+#description{
+    padding: 15px 30px;
+    margin: 15px ;
+    border-radius: 5px;
+}
 
 .input-field{
     display: flex;
