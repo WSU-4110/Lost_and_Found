@@ -263,6 +263,48 @@ button:hover {
 
 }
 
+ 
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 0;
+  }
+  .form-group {
+    flex: 1;
+    margin-right: 10px;
+  }
+  .form-group:last-child {
+    margin-right: 0;
+  }
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  input[type="text"],
+  input[type="date"],
+  textarea {
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  input[type="file"] {
+    margin-top: 5px;
+  }
+  input[type="submit"] {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  input[type="submit"]:hover {
+    background-color: #3e8e41;
+  }
+   
 
 .site-title img{
     padding: 0px;

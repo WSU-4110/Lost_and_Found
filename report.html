@@ -33,13 +33,36 @@
     </div>
 
     <div class="your_part">
-        
-
-
-
-
-
-    </div>
+        <form action="" method="POST" enctype="multipart/form-data">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="item-type">Item Type:</label>
+              <input type="text" id="item-type" name="item-type" required>
+            </div>
+            <div class="form-group">
+              <label for="date-lost">Date Lost:</label>
+              <input type="date" id="date-lost" name="date-lost" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="user-id">User ID:</label>
+              <input type="text" id="user-id" name="user-id" required>
+            </div>
+            <div class="form-group">
+              <label for="description">Description:</label>
+              <textarea id="description" name="description" required></textarea>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="image">Upload Image:</label>
+              <input type="file" id="image" name="image" accept="image/*" required>
+            </div>
+          </div>
+          <input type="submit" value="Submit">
+        </form>
+      </div>
 
    
     <div id="slogan"><h1>"Your Lost Item is Our Priority"</h1></div>
