@@ -164,7 +164,7 @@ input {
 
 }
 .left-panel img{
-    padding:3rem 17% 2rem 12% ;
+    padding:0 17% 6rem 12% ;
 
 }
 .left-panel .site-title img{
@@ -178,6 +178,8 @@ input {
     font-weight: 900;
     text-transform: uppercase;
     color: white;
+    text-align: left;
+    padding-left: 1.5rem;
 
 }
 .content .slogan {
