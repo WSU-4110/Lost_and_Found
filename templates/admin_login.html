@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin Portal </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./styles/admin_login.css">
+    <link rel="stylesheet"  href= "{{ url_for('static',filename='styles/admin_login.css') }}">
     
 </head>
 
@@ -19,7 +19,7 @@
             <div class="signin-signup">
                 
                 <form action="#" class="signin">
-                    <h1 class="slogan">Lost & Found: Admin Portal </h1>
+                    <h1 class="slogan">Admin Portal </h1>
                     <h2 class="title">Sign in</h2>
                     <div class="input-field">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -45,14 +45,16 @@
             <div class="panel left-panel">
 
                 <div class="site-title">
-                    <img src="/images/Icon.png" class="icon">
+                    
+                    <img src="{{ url_for('static',filename='images/Icon.png') }}" class="icon">
+
                     <h1>Lost & Found</h1></div>
               <div class="content">
                
                 
                
               </div>
-              <img src="images/pikachu.png" class="image" alt="" />
+              <img src="{{ url_for('static',filename='images/pikachu.png') }}" class="image" alt="" />
             </div>
 
           </div>
