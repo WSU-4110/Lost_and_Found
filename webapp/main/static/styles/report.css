@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+body, html {
+    font-family: 'Montserrat', sans-serif;
+}
+.navigation{
+    color: white;
+    background-color: #114b44;
+    padding: 0;
+    border-radius: 70% 0% 0% 0%;
+}
+@media screen and (max-width: 700px) {
+    
+    .navigation{
+        border-radius: 0% 0% 0% 0%;
+    }
+    
+}
+.site-title{
+    color: white;
+    font-weight: 600;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.7rem;
+    font-style: italic;
+    letter-spacing: 1px
+
+}
+.navigation a{
+    color: white;
+    text-decoration: none;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.2rem;
+    font-stretch: extra-expanded;
+    padding-right: 2.5vh;
+
+
+}
+.report{
+    background-color: black;
+}
