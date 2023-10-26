@@ -107,18 +107,10 @@
         </div>
       </nav>
     </div>
+    
     <section class="report">
       <!-- Modal toggle -->
-      <div class="flex justify-center m-5">
-        <button
-          id="defaultModalButton"
-          data-modal-toggle="defaultModal"
-          class="block text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-          type="button"
-        >
-          Create product
-        </button>
-      </div>
+      
     
       <!-- Main modal -->
       <div
@@ -137,7 +129,7 @@
               class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600"
             >
               <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                Add Product
+                Report Item
               </h3>
               <button
                 type="button"
@@ -161,7 +153,7 @@
               </button>
             </div>
             <!-- Modal body -->
-            <form action="#">
+            <form action="report form">
               <div class="grid gap-4 mb-4 sm:grid-cols-2">
                 <div>
                   <label
@@ -174,7 +166,7 @@
                     name="name"
                     id="name"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                    placeholder="Type product name"
+                    placeholder="Type item name"
                     required=""
                   />
                 </div>
@@ -195,16 +187,31 @@
                 </div>
                 <div>
                   <label
-                    for="price"
+                    for="date"
                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                    >Price</label
+                    >Date Found/Lost</label
                   >
                   <input
-                    type="number"
-                    name="price"
-                    id="price"
+                    type="date"
+                    name="date"
+                    id="date"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                    placeholder="$2999"
+                    placeholder=""
+                    required=""
+                  />
+                </div>
+                <div>
+                  <label
+                    for="location"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >Location</label
+                  >
+                  <input
+                    type="text"
+                    name="location"
+                    id="location"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    placeholder="Write location here"
                     required=""
                   />
                 </div>
@@ -219,10 +226,14 @@
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   >
                     <option selected="">Select category</option>
-                    <option value="TV">TV/Monitors</option>
-                    <option value="PC">PC</option>
-                    <option value="GA">Gaming/Console</option>
-                    <option value="PH">Phones</option>
+                    <option value="EL">Electronics</option>
+                    <option value="IDs">Identification</option>
+                    <option value="CL">Clothing & Accessories</option>
+                    <option value="KY">Keys</option>
+                    <option value="WA">Wallets & Purses</option>
+                    <option value="BG">Bags</option>
+                    <option value="BK">Books & Notes</option>
+                    <option value="OT">Other</option>
                   </select>
                 </div>
                 <div class="sm:col-span-2">
@@ -241,46 +252,41 @@
               </div>
               <button
                 type="submit"
-                class="text-white inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-              >
-                <svg
-                  class="mr-1 -ml-1 w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
+                class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"              
                 >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                Add new product
+                Post
               </button>
             </form>
           </div>
         </div>
       </div>
     </section>
-    <section class="report1" >
+    <section class="report card">
+
+      <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <a href="#">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Found or lost an item?</h5>
+        </a>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Report the item now to better the Wayne State University community!</p>
+        <div class="product button">
+          
+          <button
+            id="defaultModalButton"
+            data-modal-toggle="defaultModal"
+            class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+            type="button"
+          >
+            Report item
+          </button>
+          
+
+        </div>
+      </div>
       
-<label for="email-address-icon" class="block mb-2  font-medium text-gray-900 dark:text-white">Your Email</label>
-<div class="relative">
-  
-  <div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
-    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-      <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
-      <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
-    </svg>
-  </div>
-  <input type="text" id="email-address-icon" class="bg-['#14b647'] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com">
-</div>
-
-    </section>
-
-
+          </section>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
   </body>
 </html>
+
