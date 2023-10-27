@@ -4,8 +4,21 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-
+from .forms import RegisterForm
 # Create your views here.
 def home(request):
     return render(request, 'main/home.html')
 
+def signup(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('home')
+        else:
+            print(form.errors)
+    else:
+        form = RegisterForm()
+
+    return render(request, 'registration/signup.html', {"form": form})    
