@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost & Found</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"  href= "../static/styles/login.css">
+    
+</head>
+<!-- This portion of code is inspired by multiple YouTubers (True Coder, ime creative ) Followed "True Coder" for sliders -->
+<body>
+    <form method="POST">
+        {{ form.csrf_token }}
+        {{ form.username.label }} {{ form.username }}
+        {{ form.password.label }} {{ form.password }}
+        <button type="submit">Login</button>
+    </form>
+    <div class="container">
+        <div class="forms-container">
+            <div class="signin-signup">
+                <form action="{{ url_for('login') }}" method="POST" class="signin">
+                    <h1 class="slogan">Your Lost Items: Our Priority</h1>
+                    <h2 class="title">Sign in</h2>
+                    {{ form.hidden_tag() }}
+                    <div class="input-field">
+                        {{ form.username.label }}
+                        {{ form.username(class="input-class") }}
+                    </div>
+                    <div class="input-field">
+                        {{ form.password.label }}
+                        {{ form.password(class="input-class") }}
+                    </div>
+                    <button type="submit" class="btn solid">Sign in</button>
+                </form>
+            </div>
+        </div>
+    </div>
+<script src="{{ url_for('static',filename='script/signin.js') }}"></script>
+
+</body>
+
+</html>
