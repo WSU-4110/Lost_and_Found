@@ -21,4 +21,8 @@ def signup(request):
     else:
         form = RegisterForm()
 
-    return render(request, 'registration/signup.html', {"form": form})    
+    return render(request, 'registration/signup.html', {"form": form})  
+
+def display_user(request):
+    user = User.objects.get(username='username')  # Replace 'username' with the actual username
+    return render(request, 'main/userprofile.html', user=user)
