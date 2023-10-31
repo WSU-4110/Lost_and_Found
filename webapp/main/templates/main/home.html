@@ -1,5 +1,35 @@
+<style>
+    .card {
+        border: 1px solid #000; /* Add a border */
+        border-radius: 10px; /* Round the corners */
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for a 3D effect */
+        padding: 10px; /* Add some padding */
+        margin-left: 10px 0; /* Add some margin */
+    }
+</style>
 {% extends 'main/base.html' %}
 {% block title %}Home{% endblock %}
 {% block content %}
-<h1>Home Page</h1>
+
+{% for post in posts %}
+    <div class="card mt-2">
+       
+        <div class="card-body d-flex flex-row justify-content-between">
+            <div>
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p>{{ post.description }}</p>
+                
+            </div>
+            <div> 
+               button
+            </div>
+        </div>
+        <div class="card-footer text-muted">
+            <p><small>Posted by {{ post.author }} on {{ post.date_created }}</small></p> </div
+    </div>
+</div>
+{% empty %}
+    <p>No posts here yet ....</p>
+{% endfor %}
 {% endblock %}
+
