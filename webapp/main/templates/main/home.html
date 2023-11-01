@@ -31,16 +31,16 @@
             </div>
             
             <div> 
-               {% ifs user == post.author %}
+              
                <form method="DELETE">
                     {% csrf_token %}
                     <button type="submit" class="btn btn-danger">Resolve</button>    
                 </form>
-                {% endif %}
+                
             </div>
         </div>
         <div class="card-footer text-muted">
-            <p><small>Posted by {{ post.author }} on {{ post.date_created }}</small></p> </div
+            <p><small>Posted by {{ post.author }} on {{ post.date_created }}</small></p> </div>
     </div>
 </div>
 {% empty %}

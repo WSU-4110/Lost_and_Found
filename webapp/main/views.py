@@ -21,20 +21,20 @@ def home(request):
     return render(request, 'main/home.html', {'posts': posts})
 
 
-@login_required
+#@login_required
 def create_post(request):
     if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
-            post.author = request.user
+            post.author = "username"
             form.save()
             return redirect('home')
     else:
         form = PostForm()
     return render(request, 'main/create_post.html', {'form': form})
 
-'''
+
 def search_posts(request):
     if request.method == 'GET':
         start_date = request.GET.get('start_date')
@@ -49,4 +49,3 @@ def search_posts(request):
         return render(request, 'main/home.html', {'posts': posts})  
     
     return render(request, 'main/home.html', {'posts': []})
-    '''
