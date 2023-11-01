@@ -8,6 +8,7 @@ from .forms import PostForm
 from django.contrib.auth.decorators import login_required
 from .models import Post
 from datetime import datetime
+from .forms import RegisterForm
 
 # Create your views here.
 #@login_required(login_url='/login')
@@ -49,3 +50,16 @@ def search_posts(request):
         return render(request, 'main/home.html', {'posts': posts})  
     
     return render(request, 'main/home.html', {'posts': []})
+def signup(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('home')
+        else:
+            print(form.errors)
+    else:
+        form = RegisterForm()
+
+    return render(request, 'registration/signup.html', {"form": form})   
