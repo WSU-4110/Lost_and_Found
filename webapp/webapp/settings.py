@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
     'crispy_forms',
-    'crispy_tailwind',
+    'crispy_bootstrap5',
     'compressor',
 ]
 CRISPY_ALLOWED_TEMPLATE_PACKS = ('bootstrap', 'uni-form', 'tailwind')
