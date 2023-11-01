@@ -15,19 +15,18 @@ def home(request):
     return render(request, 'main/home.html', {'posts': posts})
 
 
-
+@login_required
 def create_post(request):
     if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
-            #post.author = request.user
-            post.save() 
-            return redirect('/home')
+            post.author = request.user
+            form.save()
+            return redirect('home')
     else:
-        form = PostForm()  
-    
-    return render(request, 'main/create_post.html', {'form': form}) 
+        form = PostForm()
+    return render(request, 'main/create_post.html', {'form': form})
 
 '''
 def search_posts(request):
