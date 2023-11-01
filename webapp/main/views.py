@@ -15,7 +15,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('signin')
+            return redirect('home')
         else:
             print(form.errors)
     else:
