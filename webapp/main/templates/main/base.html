@@ -4,6 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %} My Site {% endblock %}</title>
+    <style>
+      /* CSS */
+      .chat-popup {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 300px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #fff;
+      }
+
+      .chat-header, .chat-footer {
+        padding: 10px;
+        background-color: #114b44;
+      }
+
+      .chat-content {
+        height: 200px;
+        overflow-y: auto;
+      }
+
+      h3 {
+        color: white;
+      }
+
+      #send-btn{
+        color: white;
+      }
+
+      
+</style>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flowbite@1.8.1/dist/flowbite.min.css" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css"
@@ -107,7 +141,7 @@
                   href="#"
                   class="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
                   aria-current="page"
-                  >Contact</a
+                  ><button id="open-btn">Open Chat</button></a
                 >
               </li>
             </ul>
@@ -120,9 +154,33 @@
 
     </div>
 
+    <!-- HTML -->
+<div id="chat-popup" class="chat-popup">
+  <div class="chat-header">
+    <button id="close-btn"><h3>Close</h3></button>
     
+  </div>
+  <div class="chat-content">
+    <!-- Chat messages will go here -->
+  </div>
+  <div class="chat-footer">
+    <input type="text" placeholder="Type a message...">
+    <button id="send-btn">Send</button>
+  </div>
+</div>
+
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+    <script> // JavaScript
+      document.getElementById('open-btn').addEventListener('click', function() {
+        document.getElementById('chat-popup').style.display = 'block';
+      });
+      
+      document.getElementById('close-btn').addEventListener('click', function() {
+        document.getElementById('chat-popup').style.display = 'none';
+      });
+    </script>
+
   </body>
 </html>
