@@ -7,11 +7,17 @@ from django.contrib.auth import authenticate, login, logout
 from .forms import PostForm
 from django.contrib.auth.decorators import login_required
 from .models import Post
+from datetime import datetime
 
 # Create your views here.
 #@login_required(login_url='/login')
 def home(request):
-    posts = Post.objects.all()
+    date = request.GET.get('date')
+    if date:
+        date = datetime.strptime(date, '%Y-%m-%d').date()
+        posts = Post.objects.filter(date_created__date=date)
+    else:
+        posts = Post.objects.all()
     return render(request, 'main/home.html', {'posts': posts})
 
 

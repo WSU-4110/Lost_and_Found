@@ -13,6 +13,13 @@
 {% block title %}Home{% endblock %}
 {% block content %}
 
+<form method="get">
+    <label for="date">Search by date:</label>
+    <input type="date" id="date" name="date">
+    <input type="submit" value="Search">
+</form>
+
+
 {% for post in posts %}
     <div class="card mt-2">
        
@@ -22,8 +29,14 @@
                 <p>{{ post.description }}</p>
                 
             </div>
+            
             <div> 
-               button
+               {% ifs user == post.author %}
+               <form method="DELETE">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Resolve</button>    
+                </form>
+                {% endif %}
             </div>
         </div>
         <div class="card-footer text-muted">
