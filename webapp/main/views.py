@@ -22,6 +22,7 @@ def home(request):
     return render(request, 'main/home.html', {'posts': posts})
 
 
+
 #@login_required
 def create_post(request):
     if request.method == 'POST':
