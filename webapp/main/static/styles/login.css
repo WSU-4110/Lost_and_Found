@@ -60,10 +60,12 @@ input {
 
 button {
     padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
     border: none;
     border-radius: 5px;
-    background-color: white;
-    color: #14b647;
+    background-color: #14b647;
+    color: white;
     cursor: pointer;
 }
 .panels-container {
@@ -112,6 +114,12 @@ button {
     color: #128a3c;
     font-size: medium;
 }
+.btn-success{
+    background-color:white;
+    color: #128a3c;
+    font-size: medium;
+}
+
 .site-title{
     padding: 1rem;
     font-weight: 800;
