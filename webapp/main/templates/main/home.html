@@ -86,7 +86,7 @@
         <div class="card-body">
         <div class="row">   
             <div class="col">
-                <h5 class="card-title">{{ post.title }}</h5>
+                <bold><h2 class="card-title">{{ post.title }}</h2></bold>
                 <p>{{ post.description }}</p>
                 
             </div>
@@ -95,7 +95,7 @@
               
                <form method="DELETE">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-danger"><div class="btr_resolve"> Resolve </div> </button>   
+                    <button type="submit" class="btn btn-danger"><div class="btr_resolve"> Resolve. </div> </button>   
                 </form>
                 <form method="CONTACT">
                     {% csrf_token %}
