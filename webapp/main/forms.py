@@ -12,6 +12,8 @@ class RegisterForm(UserCreationForm):
         fields = ["username", "email", "password1", "password2"]
     def clean_email(self):
         email = self.cleaned_data.get('email')
+        if User.objects.filter(email=email).exists():
+            raise ValidationError('Email already exists')
         if not email.endswith('@wayne.edu'):
             raise ValidationError('You must use a wayne.edu email address')
         return email
