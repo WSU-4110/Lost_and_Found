@@ -63,3 +63,6 @@ def signup(request):
         form = RegisterForm()
 
 
+def display_user(request):
+    user = User.objects.get(username='username')  # Replace 'username' with the actual username
+    return render(request, 'main/userprofile.html', user=user)
