@@ -62,7 +62,7 @@ def signup(request):
             print(form.errors)
     else:
         form = RegisterForm()
-
+    return render(request, 'registration/signup.html', {"form": form})   
 
 def display_user(request):
     user = User.objects.get(username='username')  # Replace 'username' with the actual username
