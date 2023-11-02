@@ -50,6 +50,7 @@ def search_posts(request):
         return render(request, 'main/home.html', {'posts': posts})  
     
     return render(request, 'main/home.html', {'posts': []})
+
 def signup(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
@@ -62,4 +63,9 @@ def signup(request):
     else:
         form = RegisterForm()
 
+
+
+def display_user(request):
+    user = User.objects.get(username='username')  # Replace 'username' with the actual username
+    return render(request, 'main/userprofile.html', user=user)
 
