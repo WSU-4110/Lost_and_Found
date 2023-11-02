@@ -8,4 +8,5 @@ urlpatterns = [
     # add more URL patterns here
     path('create_post/', views.create_post, name='create_post'),
    # path('home/', views.search_posts, name='search_posts'),
+    path('signup/', views.signup, name='signup'),
 ]
