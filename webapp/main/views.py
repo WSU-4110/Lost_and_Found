@@ -10,6 +10,11 @@ from .models import Post
 from datetime import datetime
 from .forms import RegisterForm
 
+from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from .models import ChatRoom, Message
+from .forms import MessageForm
+
 # Create your views here.
 #@login_required(login_url='/login')
 def home(request):
@@ -67,3 +72,32 @@ def signup(request):
 #def display_user(request):
     #user = User.objects.get(username='username')  # Replace 'username' with the actual username
     #return render(request, 'main/userprofile.html', user=user)
+
+
+
+
+
+@login_required
+def create_chat_room(request):
+    chat_room = ChatRoom.objects.create()
+    chat_room.users.add(request.user)
+    chat_room.save()
+    return render(request, 'chat/chat_room.html', {'chat_room': chat_room})
+
+@login_required
+def send_message(request, chat_room_id):
+    chat_room = get_object_or_404(ChatRoom, id=chat_room_id)
+    if request.method == 'POST':
+        form = MessageForm(request.POST)
+        if form.is_valid():
+            message = form.save(commit=False)
+            message.user = request.user
+            message.chat_room = chat_room
+            message.save()
+    return render(request, 'chat/chat_room.html', {'chat_room': chat_room})
+
+@login_required
+def fetch_messages(request, chat_room_id):
+    chat_room = get_object_or_404(ChatRoom, id=chat_room_id)
+    messages = Message.objects.filter(chat_room=chat_room).order_by('created_at')
+    return render(request, 'chat/messages.html', {'messages': messages})

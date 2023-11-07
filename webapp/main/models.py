@@ -12,3 +12,14 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title + "\n" + self.description
+    
+
+
+class ChatRoom(models.Model):
+    users = models.ManyToManyField(User)
+
+class Message(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    chat_room = models.ForeignKey(ChatRoom, on_delete=models.CASCADE)
+    text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)

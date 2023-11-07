@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %} 
+{% block title %} Chat Room {% endblock %}
+{% load crispy_forms_tags %} 
+{% block content %}
+
+    <h1>Chat Room</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Send</button>
+    </form>
+
+    <ul id="chat-messages">
+        {% for message in messages %}
+            <li>
+                <strong>{{ message.user.username }}</strong>: {{ message.text }}
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
