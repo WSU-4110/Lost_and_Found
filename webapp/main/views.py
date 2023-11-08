@@ -28,13 +28,13 @@ def home(request):
 
 
 
-#@login_required
+@login_required
 def create_post(request):
     if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
-            post.author = "username"
+            post.author = request.user.username
             form.save()
             return redirect('home')
     else:
@@ -69,9 +69,11 @@ def signup(request):
         form = RegisterForm()
     return render(request, 'registration/signup.html', {"form": form})   
 
-#def display_user(request):
-    #user = User.objects.get(username='username')  # Replace 'username' with the actual username
-    #return render(request, 'main/userprofile.html', user=user)
+
+@login_required
+def display_user(request):
+    user = User.objects.get(username=request.user.username)  # Replace 'username' with the actual username
+    return render(request, 'main/userprofile.html', {'user': user}) 
 
 
 
@@ -95,6 +97,7 @@ def send_message(request, chat_room_id):
             message.chat_room = chat_room
             message.save()
     return render(request, 'chat/chat_room.html', {'chat_room': chat_room})
+
 
 @login_required
 def fetch_messages(request, chat_room_id):
