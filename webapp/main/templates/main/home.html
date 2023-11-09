@@ -93,13 +93,19 @@
             <div class="col"> </div>
             <div class="col-smaller"> 
               
-               <form method="DELETE">
+                {% if user == post.author %}
+                    <form method="RESOLVE">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger"><div class="btr_resolve"> Resolve. </div> </button>   
+                    </form>
+                {% endif %}
+               
+                <form method="post" action="{% url 'create_chat_room' %}">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-danger"><div class="btr_resolve"> Resolve. </div> </button>   
-                </form>
-                <form method="CONTACT">
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-danger"><div class="btr_resolve"> Contact </div> </button>   
+                    <input type="hidden" name="chat_room_name" value="{{ post.title }}">
+                    <button type="submit" class="btn btn-danger">
+                        <div class="btr_resolve"> Contact </div>
+                    </button>
                 </form>
                 
             </div>
