@@ -1,0 +1,157 @@
+{% extends 'main/base.html'%}
+{% block title %}User Profile{% endblock %}
+{% block content %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+body, html {
+ 
+
+    font-family: 'Montserrat', sans-serif;
+    /*background-color: #14b647;*/
+    
+
+}
+
+.grid-item {
+  width: max;
+  padding: 12px;
+  background-color: rgb(127, 116, 116);
+  color: rgb(13, 13, 13);
+  border-radius: 8px;
+}
+
+.navigation{
+    color: white;
+    background-color: #114b44;
+    padding: 0;
+    border-radius: 70% 0% 0% 0%;
+}
+@media screen and (max-width: 700px) {
+    
+    .navigation{
+        border-radius: 0% 0% 0% 0%;
+    }
+    
+}
+
+.your_part {
+    margin-top: 50px;
+    margin-left: 2%;
+    width: 80%;
+    height: 80%;
+    border-radius: 48px;
+    position: absolute;
+}
+
+
+.PersonIcon {
+    max-width: 256px;
+    max-height: 256px;
+    width: auto;
+    height: auto;
+    display: block; 
+    margin: 0 auto; 
+}
+
+.centertext {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;  /* or any specific height you prefer */
+}
+
+.usercard {
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 600px;
+    background-color: #bbcec7;
+    margin-top: 200%;
+    margin-bottom: 200%;
+    margin: 0 auto;  /* centers the card horizontally */
+}
+
+.site-title{
+    color: white;
+    font-weight: 600;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.7rem;
+    font-style: italic;
+    letter-spacing: 1px
+
+}
+.navigation a{
+    color: white;
+    text-decoration: none;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.2rem;
+    font-stretch: extra-expanded;
+    padding-right: 2.5vh;
+
+
+}
+.report{
+    background-color: black;
+}
+</style>
+
+<div class="your_part"> 
+
+  <!-- User Profile Card -->
+  <div class="usercard">
+  <!-- Kebab Menu (Three-dot Button) -->
+  <div class="absolute top-4 right-4">
+  <button id="dropdownButton" onclick="toggleMenu()" class="text-gray-500 hover:bg-gray-100 p-2 rounded-full">
+      •••
+  </button>
+  <!-- Dropdown Menu -->
+  <div id="dropdown" class="hidden bg-white rounded shadow mt-2 w-40 absolute top-full right-0">
+      <ul class="list-reset">
+          <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Edit</a></li>
+          <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Share</a></li>
+          <li><a href="#" class="block px-4 py-2 text-red-600 hover:bg-gray-200">Logout</a></li>
+      </ul>
+  </div>
+  </div>
+
+  <div class="centertext">
+  <img class="PersonIcon" src="../../../static/images/PersonIcon.png" alt="PersonIcon"/>
+  <h5 class="username mb-1 text-xl font-medium text-gray-900 dark:text-white">Name</h5>
+  <h1>{{ user.username }}</h1>
+  <p>{{ user.email }}</p>
+  <span class="text-sm text-gray-500 dark:text-gray-400">User ID</span>
+  <p class="mt-4 text-center text-gray-700 dark:text-gray-400">Email</p>
+
+  
+  <div class="grid-item small" id="log_out_button"><button id="log_out_button" type="button" >Log Out</button> </div>  
+  </div>
+  </div>
+
+            
+</div>
+
+<script>
+  function toggleMenu() {
+   const dropdown = document.getElementById("dropdown");
+   dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+}
+
+document.getElementById('log_out_button').addEventListener('mouseover', function() {
+  this.style.backgroundColor = 'white'; // Change 'red' to any color you want
+});
+
+document.getElementById('log_out_button').addEventListener('mouseout', function() {
+  this.style.backgroundColor = ''; // This will reset the color when the mouse is not over the button
+});
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+
+{% endblock %}
