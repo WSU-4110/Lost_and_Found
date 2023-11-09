@@ -30,15 +30,17 @@ def home(request):
 
 @login_required
 def create_post(request):
+    form = PostForm()
     if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user.username
-            form.save()
+            title = request.POST.get('title')
+            description = request.POST.get('description')
+            #author_username = request.POST.get('author')
+            author = User.objects.get(username=request.user.username)
+            post = Post.objects.create(title=title, description=description, author=author)
+            post.save()
             return redirect('home')
-    else:
-        form = PostForm()
     return render(request, 'main/create_post.html', {'form': form})
 
 
@@ -81,7 +83,9 @@ def display_user(request):
 
 @login_required
 def create_chat_room(request):
-    chat_room = ChatRoom.objects.create()
+    if request.method == 'POST':
+        chat_room_name = request.POST.get('chat_room_name')
+        chat_room = ChatRoom.objects.create(name=chat_room_name)
     chat_room.users.add(request.user)
     chat_room.save()
     return render(request, 'chat/chat_room.html', {'chat_room': chat_room})
