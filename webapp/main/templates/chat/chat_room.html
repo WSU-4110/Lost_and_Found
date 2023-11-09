@@ -1,22 +1,27 @@
+<style>
+    #box{
+        padding-left: 100px;
+        padding-top: 300px;
+    }
+</style>
 {% extends 'main/base.html' %} 
 {% block title %} Chat Room {% endblock %}
 {% load crispy_forms_tags %} 
 {% block content %}
 
-    <h1>Chat Room</h1>
+<div id="box">
+<h1>{{ chat_room.name }}</h1>
 
-    <form method="post">
-        {% csrf_token %}
-        {{ form.text.label_tag }} {{ form.text }}
-        <button type="submit">Send</button>
-    </form>
+{% for message in chat_room.message_set.all %}
+    <p>
+        <strong>{{ message.user.username }}</strong>: {{ message.text }}
+    </p>
+{% endfor %}
 
-    <ul id="chat-messages">
-        {% for message in messages %}
-            <li>
-                <strong>{{ message.user.username }}</strong>: {{ message.text }}
-            </li>
-        {% endfor %}
-    </ul>
-
+<form method="post" action="{% url 'send_message' chat_room.id %}">
+    {% csrf_token %}
+    <input type="text" name="text">
+    <button type="submit">Send</button>
+</form>
+<div>
 {% endblock %}
