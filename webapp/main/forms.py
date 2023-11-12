@@ -30,4 +30,8 @@ class PostForm(forms.ModelForm):
 class MessageForm(forms.ModelForm):
     class Meta:
         model = Message
+<<<<<<< Updated upstream
         fields = ['text', 'chat_room']
+=======
+        fields = ['text', 'chat_room']
+>>>>>>> Stashed changes

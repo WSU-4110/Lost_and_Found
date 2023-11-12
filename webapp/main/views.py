@@ -22,8 +22,10 @@ def home(request):
     if date:
         date = datetime.strptime(date, '%Y-%m-%d').date()
         posts = Post.objects.filter(date_created__date=date)
+        posts = Post.objects.all().order_by('-date_created')
     else:
         posts = Post.objects.all()
+        posts = Post.objects.all().order_by('-date_created')
     return render(request, 'main/home.html', {'posts': posts})
 
 
@@ -44,20 +46,33 @@ def create_post(request):
     return render(request, 'main/create_post.html', {'form': form})
 
 
-def search_posts(request):
+def search_posts_by_date(request):
     if request.method == 'GET':
         start_date = request.GET.get('start_date')
         end_date = request.GET.get('end_date')
 
         if start_date and end_date:
             posts = Post.objects.filter(date_created__range=[start_date, end_date])
-
         else:
             posts = Post.objects.all()
 
         return render(request, 'main/home.html', {'posts': posts})  
     
     return render(request, 'main/home.html', {'posts': []})
+
+def search_posts_by_title(request):
+    if request.method == 'GET':
+        title = request.GET.get('title')
+
+        if title:
+            posts = Post.objects.filter(title__contains=title)
+        
+
+        return render(request, 'main/home.html', {'posts': posts})
+    
+    return render(request, 'main/home.html', {'posts': []})
+ 
+     
 def signup(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
@@ -108,3 +123,7 @@ def fetch_messages(request, chat_room_id):
     chat_room = get_object_or_404(ChatRoom, id=chat_room_id)
     messages = Message.objects.filter(chat_room=chat_room).order_by('created_at')
     return render(request, 'chat/messages.html', {'messages': messages})
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes

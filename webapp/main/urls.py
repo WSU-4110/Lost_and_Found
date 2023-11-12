@@ -13,5 +13,8 @@ urlpatterns = [
     path('create_chat_room', views.create_chat_room, name='create_chat_room'),
     path('send_message/<int:chat_room_id>', views.send_message, name='send_message'),
     path('fetch_messages/<int:chat_room_id>', views.fetch_messages, name='fetch_messages'),
+    path('search_by_date/', views.search_posts_by_date, name='search_by_date'),
+    path('search_by_title/', views.search_posts_by_title, name='search_by_title'),
+
 
 ]

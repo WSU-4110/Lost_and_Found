@@ -121,16 +121,22 @@ body, html {
   </div>
 
   <div class="centertext">
+    <h5 class="username mb-1 text-xl font-large text-gray-900 dark:text-white">User</h5>
   <img class="PersonIcon" src="../../../static/images/PersonIcon.png" alt="PersonIcon"/>
-  <h5 class="username mb-1 text-xl font-medium text-gray-900 dark:text-white">Name</h5>
-  <h1>{{ user.username }}</h1>
-  <p>{{ user.email }}</p>
+  
+  
+  
   <span class="text-sm text-gray-500 dark:text-gray-400">User ID</span>
-  <p class="mt-4 text-center text-gray-700 dark:text-gray-400">Email</p>
+  <h1>{{ user.username }}</h1>
+  <span class="text-sm text-gray-500 dark:text-gray-400">User Email</span>
+  <p>{{ user.email }}</p>
 
   
-  <div class="grid-item small" id="log_out_button"><button id="log_out_button" type="button" >Log Out</button> </div>  
-  </div>
+  <div class="grid-item small" id="log_out_button">
+    <a href="{% url 'login' %}">
+        <button id="log_out_button" type="button" >Log Out</button>
+    </a>
+</div>
   </div>
 
             
