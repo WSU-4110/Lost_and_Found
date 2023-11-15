@@ -114,8 +114,8 @@ body, html {
   <div id="dropdown" class="hidden bg-white rounded shadow mt-2 w-40 absolute top-full right-0">
       <ul class="list-reset">
           <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Edit</a></li>
-          <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Share</a></li>
-          <li><a href="#" class="block px-4 py-2 text-red-600 hover:bg-gray-200">Logout</a></li>
+          <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-200" onclick="copyToClipboard()">Share</a></li>
+          <li><a href="{% url 'login' %}" class="block px-4 py-2 text-red-600 hover:bg-gray-200">Logout</a></li>
       </ul>
   </div>
   </div>
@@ -149,6 +149,20 @@ document.getElementById('log_out_button').addEventListener('mouseover', function
 document.getElementById('log_out_button').addEventListener('mouseout', function() {
   this.style.backgroundColor = ''; // This will reset the color when the mouse is not over the button
 });
+
+
+function copyToClipboard() {
+  var dummy = document.createElement('input'),
+  text = window.location.href;
+
+  document.body.appendChild(dummy);
+  dummy.value = text;
+  dummy.select();
+  document.execCommand('copy');
+  document.body.removeChild(dummy);
+
+  alert("Link copied to clipboard");
+}
 
 </script>
 
