@@ -16,6 +16,8 @@ from django.contrib.auth.decorators import login_required
 #from .forms import MessageForm
 from django.core.mail import send_mail
 from datetime import datetime, timedelta
+from .models import Report
+from .forms import ReportForm
 
 # Create your views here.
 #@login_required(login_url='/login')
@@ -146,3 +148,23 @@ def fetch_messages(request, chat_room_id):
     messages = Message.objects.filter(chat_room=chat_room).order_by('created_at')
     return render(request, 'chat/messages.html', {'messages': messages})
 '''
+
+
+
+@login_required
+def create_report(request):
+    form = ReportForm()
+    if request.method == 'POST':
+        form = ReportForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data.get('Name')
+            brand = form.cleaned_data.get('Brand')
+            location = form.cleaned_data.get('Location')
+            category = form.cleaned_data.get('Category')
+            description = form.cleaned_data.get('description')
+            image_link = form.cleaned_data.get('image_link')
+            author = User.objects.get(username=request.user.username)
+            report = Report.objects.create(Name=name, Brand=brand, Location=location, Category=category, description=description, author=author, image_link=image_link)
+            report.save()
+            return redirect('home')
+    return render(request, 'main/create_report.html', {'form': form})
