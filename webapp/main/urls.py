@@ -11,8 +11,8 @@ urlpatterns = [
     path('display_user', views.display_user, name='display_user'),
     path('signup', views.signup, name='signup'),
     path('otp_verification', views.otp_verification, name='otp_verification'),
-    path('create_chat_room', views.create_chat_room, name='create_chat_room'),
-    path('send_message/<int:chat_room_id>', views.send_message, name='send_message'),
-    path('fetch_messages/<int:chat_room_id>', views.fetch_messages, name='fetch_messages'),
+    #path('create_chat_room', views.create_chat_room, name='create_chat_room'),
+    #path('send_message/<int:chat_room_id>', views.send_message, name='send_message'),
+    #path('fetch_messages/<int:chat_room_id>', views.fetch_messages, name='fetch_messages'),
 
 ]
