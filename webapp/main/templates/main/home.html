@@ -100,7 +100,7 @@
                     </form>
                 {% endif %}
                
-                <form method="post" action="{% url 'create_chat_room' %}">
+                <form method="post" action="">
                     {% csrf_token %}
                     <input type="hidden" name="chat_room_name" value="{{ post.title }}">
                     <button type="submit" class="btn btn-danger">
