@@ -21,11 +21,15 @@ from datetime import datetime, timedelta
 #@login_required(login_url='/login')
 def home(request):
     date = request.GET.get('date')
+    title = request.GET.get('title')
     if date:
         date = datetime.strptime(date, '%Y-%m-%d').date()
         posts = Post.objects.filter(date_created__date=date)
+    elif title:
+        posts = Post.objects.filter(title__icontains=title)
     else:
         posts = Post.objects.all()
+        posts = Post.objects.all().order_by('-date_created')
     return render(request, 'main/home.html', {'posts': posts})
 
 
