@@ -9,11 +9,13 @@ from django.contrib.auth.decorators import login_required
 from .models import Post
 from datetime import datetime
 from .forms import RegisterForm
-
+import random
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import ChatRoom, Message
 from .forms import MessageForm
+from django.core.mail import send_mail
+from datetime import datetime, timedelta
 
 # Create your views here.
 #@login_required(login_url='/login')
@@ -57,19 +59,50 @@ def search_posts(request):
 
         return render(request, 'main/home.html', {'posts': posts})  
     
-    return render(request, 'main/home.html', {'posts': []})
+    return render(request, 'main/home.html', {'posts': []})  
 def signup(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return redirect('home')
+            user = form.save(commit=False)  # Don't save the user yet
+            otp = random.randint(100000, 999999)  # Generate a 6-digit OTP
+            request.session['otp'] = otp  # Store the OTP in the session
+            request.session['username'] = form.cleaned_data.get('username')
+            request.session['email'] = form.cleaned_data.get('email')
+            request.session['password'] = form.cleaned_data.get('password1')
+            request.session['otp_time'] = str(datetime.now())  # Store the current time
+            send_mail(
+                'Your OTP',
+                f'Your OTP is {otp}',
+                'lostfoundwayne@gmail.com',
+                [form.cleaned_data.get('email')],
+                fail_silently=False,
+            )
+            return redirect('otp_verification')  # Redirect to OTP verification view
         else:
             print(form.errors)
     else:
         form = RegisterForm()
-    return render(request, 'registration/signup.html', {"form": form})   
+    return render(request, 'registration/signup.html', {'form': form})
+
+
+def otp_verification(request):
+    if request.method == 'POST':
+        otp = request.POST.get('otp')
+        otp_time = datetime.strptime(request.session.get('otp_time'), '%Y-%m-%d %H:%M:%S.%f')
+        if datetime.now() - otp_time > timedelta(minutes=2):  # Check if more than 2 minutes have passed
+            messages.error(request, 'OTP expired')
+        elif otp == str(request.session.get('otp')):
+            User.objects.create_user(
+                username=request.session.get('username'),
+                email=request.session.get('email'),
+                password=request.session.get('password')
+            )
+            messages.success(request, 'User created successfully')
+            return redirect('home')
+        else:
+            messages.error(request, 'Invalid OTP')
+    return render(request, 'registration/otp_verification.html')
 
 
 @login_required

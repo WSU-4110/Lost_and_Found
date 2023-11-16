@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .otp_post{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #14b647;
+            width: 400px;
+        }
+        .otp_title{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .otp_number{
+            width: 200px;
+            height: 30px;
+            border-radius: 5px;
+            border: 1px solid black;
+            margin: 10px;
+            padding: 5px;
+        }
+    </style>
+</head>
+    <body>
+        <h1>OTP Verification</h1>
+        <p>OTP has been sent to your registered mobile number</p>
+        <form method="POST" class="otp_post">
+            {% csrf_token %}
+            <label for="otp"class="otp_title">Enter OTP:</label>
+            <input type="text" id="otp" class="otp_number" name="otp" required>
+            <input type="submit" class="otp_submit" value="Verify">
+            <p id="timer">02:00</p>
+        </form>
+    </body>
+
+
+<script>
+    var timeLeft = 120;  // 2 minutes in seconds
+    var timerElement = document.getElementById('timer');
+    
+    var timerInterval = setInterval(function() {
+        timeLeft--;
+        var minutes = Math.floor(timeLeft / 60);
+        var seconds = timeLeft % 60;
+        timerElement.textContent = (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            timerElement.textContent = '00:00';
+        }
+    }, 1000);
+    </script>
+</html>
+
