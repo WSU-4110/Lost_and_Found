@@ -35,6 +35,10 @@ def home(request):
     return render(request, 'main/home.html', {'posts': posts})
 
 
+def list_report(request):
+    reports = Report.objects.all()
+    #print(reports)
+    return render(request, 'main/list_report.html', {'reports': reports})
 
 @login_required
 def create_post(request):
@@ -49,6 +53,7 @@ def create_post(request):
             post = Post.objects.create(title=title, description=description, author=author)
             post.save()
             return redirect('home')
+            
     return render(request, 'main/create_post.html', {'form': form})
 
 

@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %} 
+{% block title %} Create a Report {% endblock %}
+{% load crispy_forms_tags %} 
+{% block content %}
+
+
+    <h1>Report List</h1>
+    <ul>
+        {% for report in reports %}
+            <li>
+                <h2>{{ report.Name }}</h2>
+                <img src="{{ report.image_link }}" alt="{{ report.Name }}">
+                <p><strong>Brand:</strong> {{ report.Brand }}</p>
+                <p><strong>Location:</strong> {{ report.Location }}</p>
+                <p><strong>Category:</strong> {{ report.Category }}</p>
+                <p>{{ report.description }}</p>
+                <p><strong>Created:</strong> {{ report.date_created }}</p>
+                <p><strong>Updated:</strong> {{ report.date_updated }}</p>
+                <p><strong>Author:</strong> {{ report.author }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+
+{% endblock %}
