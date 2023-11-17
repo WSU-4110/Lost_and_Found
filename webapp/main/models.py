@@ -36,3 +36,12 @@ class Message(models.Model):
     text = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 '''
+
+class Comment(models.Model):
+    report = models.ForeignKey(Report, on_delete=models.CASCADE)
+    text = models.TextField()
+    date_created= models.DateTimeField(auto_now_add=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.text

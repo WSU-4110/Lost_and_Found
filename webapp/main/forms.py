@@ -5,6 +5,7 @@ from .models import Post
 from django.core.exceptions import ValidationError
 #from .models import Message
 from .models import Report
+from .models import Comment
 
 class RegisterForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -40,3 +41,9 @@ class ReportForm(forms.ModelForm):
     class Meta:
         model = Report
         fields = ['Name', 'Brand', 'Location', 'Category', 'description']
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['text', 'author']
