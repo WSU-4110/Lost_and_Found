@@ -97,22 +97,42 @@ def signup(request):
     return render(request, 'registration/signup.html', {'form': form})
 
 
+from django.shortcuts import redirect, render
+from django.contrib import messages
+from datetime import datetime, timedelta
+from django.contrib.auth.models import User
+
 def otp_verification(request):
     if request.method == 'POST':
         otp = request.POST.get('otp')
-        otp_time = datetime.strptime(request.session.get('otp_time'), '%Y-%m-%d %H:%M:%S.%f')
-        if datetime.now() - otp_time > timedelta(minutes=2):  # Check if more than 2 minutes have passed
-            messages.error(request, 'OTP expired')
-        elif otp == str(request.session.get('otp')):
-            User.objects.create_user(
-                username=request.session.get('username'),
-                email=request.session.get('email'),
-                password=request.session.get('password')
-            )
-            messages.success(request, 'User created successfully')
-            return redirect('home')
+        otp_time_str = request.session.get('otp_time')
+        if otp_time_str:
+            otp_time = datetime.strptime(otp_time_str, '%Y-%m-%d %H:%M:%S.%f')
+            if datetime.now() - otp_time > timedelta(minutes=2):  # Check if more than 2 minutes have passed
+                messages.error(request, 'OTP expired. Please sign up again.')
+                # Redirect to the signup page
+                return redirect('signup')
+            elif otp == str(request.session.get('otp')):
+                try:
+                    User.objects.create_user(
+                        username=request.session.get('username'),
+                        email=request.session.get('email'),
+                        password=request.session.get('password')
+                    )
+                    messages.success(request, 'User created successfully')
+                    # Clear the session variables related to OTP
+                    del request.session['otp']
+                    del request.session['otp_time']
+                    return redirect('home')
+                except Exception as e:
+                    # Handle exceptions like duplicate username
+                    messages.error(request, f'Error creating user: {e}')
+            else:
+                messages.error(request, 'Invalid OTP')
         else:
-            messages.error(request, 'Invalid OTP')
+            messages.error(request, 'OTP verification failed. Please sign up again.')
+            return redirect('signup')
+
     return render(request, 'registration/otp_verification.html')
 
 
