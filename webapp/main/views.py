@@ -97,10 +97,6 @@ def signup(request):
     return render(request, 'registration/signup.html', {'form': form})
 
 
-from django.shortcuts import redirect, render
-from django.contrib import messages
-from datetime import datetime, timedelta
-from django.contrib.auth.models import User
 
 def otp_verification(request):
     if request.method == 'POST':

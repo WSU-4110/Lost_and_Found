@@ -3,6 +3,56 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from django.contrib import messages
 import datetime
+from django.core import mail
+import random
+from main.forms import RegisterForm
+from unittest.mock import patch
+
+
+
+
+class SignupViewTest(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.signup_url = reverse('signup')
+
+    def test_signup_view_get_request(self):
+        # Test GET request (should render the signup form)
+        response = self.client.get(self.signup_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'registration/signup.html')
+        self.assertIsInstance(response.context['form'], RegisterForm)
+
+    # @patch('main.views.random.randint')
+    # def test_signup_post_with_valid_data(self, mock_randint):
+    #     mock_randint.return_value = 123456  # Mocked OTP
+
+    #     valid_data = {
+    #         'username': 'testuser1',
+    #         'email': 'testuser@wayne.edu',  # Adjust this as per your form's requirements
+    #         'password1': 'TestPassword123',
+    #         'password2': 'TestPassword123',
+    #         # Include any other fields required by your form
+    #     }
+
+    #     response = self.client.post(self.signup_url, valid_data)
+
+    #     # Check if the user is created and redirected to OTP verification
+    #     self.assertTrue(User.objects.filter(username='testuser').exists())
+    #     self.assertEqual(response.status_code, 302)
+    #     self.assertRedirects(response, reverse('otp_verification'))  # Assuming 'otp_verification' is your OTP verification URL name
+
+    #     # Optionally, check if the OTP is correctly stored in session
+    #     self.assertEqual(self.client.session['otp'], 123456)
+
+    def test_signup_post_with_invalid_data(self):
+        # Test POST request with invalid data
+        response = self.client.post(self.signup_url, {})
+        self.assertEqual(response.status_code, 200)
+        self.assertFalse(User.objects.filter(username='baduser').exists())
+        self.assertFormError(response, 'form', 'username', 'This field is required.')
+        self.assertFormError(response, 'form', 'email', 'This field is required.')
+
 
 class OTPVerificationViewTest(TestCase):
 
