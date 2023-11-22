@@ -7,6 +7,7 @@
     <h1>Report List</h1>
     <ul>
         {% for report in reports %}
+        {% if not report.is_resolved %}
             <li>
                 <h2>{{ report.Name }}</h2>
                 <img src="{{ report.image_link }}" alt="{{ report.Name }}">
@@ -17,9 +18,17 @@
                 <p><strong>Created:</strong> {{ report.date_created }}</p>
                 <p><strong>Updated:</strong> {{ report.date_updated }}</p>
                 <p><strong>Author:</strong> {{ report.author }}</p>
+                {% if user == report.author %}
+                <form method="POST" action="{% url 'delete_report' report.id %}">
+                    {% csrf_token %}
+                    <input type="submit" value="Delete">
+                </form>
+                {% endif %}
+                <br><br>
             </li>
+        {% endif %}
         {% endfor %}
     </ul>
-</body>
+
 
 {% endblock %}
