@@ -1,1 +1,4 @@
 python manage.py test main.tests.test_models
+needed installation
+pip install Pillow django-crispy-forms pytesseract
+pip install opencv-python

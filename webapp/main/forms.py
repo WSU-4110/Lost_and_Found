@@ -5,6 +5,7 @@ from .models import Post
 from django.core.exceptions import ValidationError
 #from .models import Message
 from .models import Report
+from .models import ImageUpload
 
 class RegisterForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -34,6 +35,11 @@ class MessageForm(forms.ModelForm):
         fields = ['text', 'chat_room']
 
 '''
+#practice form
+class ImageUploadForm(forms.ModelForm):
+    class Meta:
+        model = ImageUpload
+        fields = ['image']
 
 
 class ReportForm(forms.ModelForm):

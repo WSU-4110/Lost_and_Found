@@ -24,6 +24,11 @@ class Report(models.Model):
     image_link = models.URLField(null=True)
     def __str__(self):
         return self.Name + "\n" + self.description
+#practice model
+class ImageUpload(models.Model):
+    image = models.ImageField(upload_to='uploads/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
 
 '''
 class ChatRoom(models.Model):
