@@ -189,3 +189,13 @@ def create_report(request):
             report.save()
             return redirect('home')
     return render(request, 'main/create_report.html', {'form': form})
+
+
+
+
+def delete_report(request, report_id):
+    report = get_object_or_404(Report, id=report_id)
+    if request.user == report.author:
+        report.is_resolved = True
+        report.delete()
+    return redirect('list_report')

@@ -14,6 +14,8 @@
         color: white;
         width: 100px;
     }
+
+    
     input[type=submit] {
         background-color: #114b44;
         color: white;
@@ -54,6 +56,11 @@
         flex: 0.5;
         text-align: right;
     }
+
+    .rounded-input {
+        border-radius: 15px;
+        width: 100%;
+    }
 </style>
 
 
@@ -79,6 +86,33 @@
     </form>
 </div>
 
+{% load crispy_forms_tags %} 
+
+
+
+<div style="border: 1px solid #ccc; border-radius: 10px; padding: 20px;">
+<form method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div class="form-group">
+        {{ form.title.errors }}
+
+        <label for="{{ form.title.id_for_label }}"></label>
+        <input type="text" class="form-control rounded-input" id="{{ form.title.id_for_label }}" name="{{ form.title.html_name }}" value="{{ form.title.value|default_if_none:'' }}">
+    </div>
+    <div class="form-group">
+        {{ form.description.errors }}
+        <label for="{{ form.description.id_for_label }}"></label>
+        <textarea class="form-control rounded-input" id="{{ form.description.id_for_label }}" name="{{ form.description.html_name }}">{{ form.description.value|default_if_none:'' }}</textarea>
+    </div>
+    <!-- Repeat for other fields -->
+    <button type="submit" class="btn btn-success">Post</button>
+</form>
+</div>
+
+
+
+
 
 {% for post in posts %}
     <div class="card mt-2">
@@ -91,24 +125,7 @@
                 
             </div>
             <div class="col"> </div>
-            <div class="col-smaller"> 
-              
-                {% if user == post.author %}
-                    <form method="RESOLVE">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-danger"><div class="btr_resolve"> Resolve. </div> </button>   
-                    </form>
-                {% endif %}
-               
-                <form method="post" action="">
-                    {% csrf_token %}
-                    <input type="hidden" name="chat_room_name" value="{{ post.title }}">
-                    <button type="submit" class="btn btn-danger">
-                        <div class="btr_resolve"> Contact </div>
-                    </button>
-                </form>
-                
-            </div>
+            
 
         </div>
         <div class="card-footer text-muted">
