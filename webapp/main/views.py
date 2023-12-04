@@ -18,6 +18,8 @@ from django.core.mail import send_mail
 from datetime import datetime, timedelta
 from .models import Report
 from .forms import ReportForm
+import cv2
+import numpy as np
 
 # Create your views here.
 #@login_required(login_url='/login')
@@ -199,3 +201,65 @@ def delete_report(request, report_id):
         report.is_resolved = True
         report.delete()
     return redirect('list_report')
+
+
+def preprocess_image(image_path):
+    image = Image.open(image_path)
+    grayscale_image = ImageOps.grayscale(image)
+    return grayscale_image
+def resize_image(image, base_width=800):
+    w_percent = (base_width / float(image.size[0]))
+    h_size = int((float(image.size[1]) * float(w_percent)))
+    resized_image = image.resize((base_width, h_size), Image.LANCZOS)
+    return resized_image
+def apply_threshold(image, threshold=200):
+    return image.point(lambda p: p > threshold and 255)
+
+
+def denoise_image(image):
+    open_cv_image = np.array(image)
+    # Check if the image is single-channel (grayscale)
+    if len(open_cv_image.shape) == 2 or open_cv_image.shape[2] == 1:
+        denoised_image = cv2.fastNlMeansDenoising(open_cv_image, None, 10, 7, 21)
+    else:
+        denoised_image = cv2.fastNlMeansDenoisingColored(open_cv_image, None, 10, 10, 7, 21)
+    return Image.fromarray(denoised_image)
+def preprocess_for_ocr(image_path):
+    image = Image.open(image_path)
+    image = ImageOps.grayscale(image)
+    image = resize_image(image)
+    image = apply_threshold(image)
+    image = denoise_image(image)
+    return image
+
+
+def detect_id_card(image_path):
+    preprocessed_image = preprocess_for_ocr(image_path)
+    text = pytesseract.image_to_string(preprocessed_image,lang='eng',config='--psm 6')
+    print("Extracted Text:", text)
+    
+    # Define patterns or keywords commonly found on ID cards
+    id_patterns = [
+        re.compile(r'\bName\b', re.IGNORECASE),
+        re.compile(r'\bDate of Birth\b', re.IGNORECASE),
+        re.compile(r'\bID Number\b', re.IGNORECASE),
+        # Add more patterns as needed
+    ]
+    
+    # Check if the text contains any of the patterns
+    for pattern in id_patterns:
+        if pattern.search(text):
+            return "Potential ID Card Detected"
+    
+    return "No ID Card Detected"
+
+def image_upload(request):
+    if request.method == 'POST':
+        form = ImageUploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            image_upload = form.save()
+            result = detect_id_card(image_upload.image.path)
+            return render(request, 'main/image_upload.html', {'form': form, 'result': result})
+    else:
+        form = ImageUploadForm()
+    return render(request, 'main/image_upload.html', {'form': form})
