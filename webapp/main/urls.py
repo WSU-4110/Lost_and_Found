@@ -16,5 +16,6 @@ urlpatterns = [
     #path('fetch_messages/<int:chat_room_id>', views.fetch_messages, name='fetch_messages'),
     path('create_report/', views.create_report, name='create_report'),
     path('list_report/', views.list_report, name='list_report'),
+    path('upload/', views.image_upload, name='upload'),
     path('delete_report/<int:report_id>/', views.delete_report, name='delete_report'),
 ]
