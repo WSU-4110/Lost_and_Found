@@ -32,9 +32,9 @@ class Report(models.Model):
             self.date_updated = timezone.now()
         super().save(*args, **kwargs)
 
-class ImageUpload(models.Model):
-    image = models.ImageField(upload_to='uploads/')
-    uploaded_at = models.DateTimeField(auto_now_add=True)
+#class ImageUpload(models.Model):
+    #image = models.ImageField(upload_to='uploads/')
+    #uploaded_at = models.DateTimeField(auto_now_add=True)
 
 
 '''

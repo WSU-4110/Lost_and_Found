@@ -263,3 +263,19 @@ def image_upload(request):
     else:
         form = ImageUploadForm()
     return render(request, 'main/image_upload.html', {'form': form})
+
+
+
+
+
+def report_form(request):
+    if request.method == 'POST':
+        form = ReportForm(request.POST)
+        if form.is_valid():
+            # process the data in form.cleaned_data
+            # ...
+            pass
+    else:
+        form = ReportForm()
+
+    return render(request, 'main/create_report.html', {'form': form})
