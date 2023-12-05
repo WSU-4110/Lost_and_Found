@@ -136,7 +136,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'webapp/static',
+    BASE_DIR / 'webapp/main/static',
 ]
 
 STATICFILES_FINDERS = [
