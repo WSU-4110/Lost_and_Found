@@ -1,0 +1,7 @@
+Django==4.2.6
+django-crispy-forms
+crispy-bootstrap5
+crispy-tailwind
+django-compressor
+mysqlclient
+opencv-python
