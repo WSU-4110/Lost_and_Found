@@ -29,3 +29,5 @@ jobs:
       run: |
         python webapp/manage.py test
         python webapp/manage.py test main.tests.test_models
+        python webapp/manage.py test main.tests.test_views
+        python webapp/manage.py test main.tests.test_urls
