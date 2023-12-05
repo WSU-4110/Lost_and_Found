@@ -4,3 +4,4 @@ crispy-bootstrap5
 crispy-tailwind
 django-compressor
 mysqlclient
+opencv-python
