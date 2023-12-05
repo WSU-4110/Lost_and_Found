@@ -28,3 +28,4 @@ jobs:
     - name: Run Tests
       run: |
         python webapp/manage.py test
+        python webapp/manage.py test main.tests.test_models
