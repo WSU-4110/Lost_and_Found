@@ -5,3 +5,4 @@ crispy-tailwind
 django-compressor
 mysqlclient
 opencv-python
+Pillow
