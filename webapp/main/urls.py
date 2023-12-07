@@ -22,6 +22,7 @@ urlpatterns = [
     #path('upload/', views.image_upload, name='upload'),
     path('delete_report/<int:report_id>/', views.delete_report, name='delete_report'),
     path('resolve_report/<int:report_id>/', views.resolve_report, name='resolve_report'),
+    path('personal_list', views.personal_list, name='personal_list'),
 
     #path('create_report/report_form', views.report_form, name='report_form'),
 

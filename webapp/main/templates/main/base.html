@@ -109,6 +109,14 @@
                   aria-current="page"
                   >Home</a
                 >
+
+                <li>
+                  <a
+                    href="{% url 'create_post' %}"
+                    class="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
+                    aria-current="page"
+                    >Send Message</a>
+                </li>
               </li>
               <li>
                 <a
@@ -118,14 +126,7 @@
                   >Report Lost Item</a
                 >
               </li>
-              <li>
-                <a
-                  href="{% url 'create_post' %}"
-                  class="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
-                  aria-current="page"
-                  >Community</a
-                >
-              </li>
+              
               <li>
                 <a
                   href="{% url 'list_report' %}"
@@ -140,6 +141,14 @@
                   class="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
                   aria-current="page"
                   >Resolved Reports</a
+                >
+              </li>
+              <li>
+                <a
+                  href="{% url 'personal_list' %}"
+                  class="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
+                  aria-current="page"
+                  >Personal Reports</a
                 >
               </li>
               <li>

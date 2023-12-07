@@ -63,6 +63,11 @@ def list_report(request):
         reports = Report.objects.filter(is_resolved=False)
     return render(request, 'main/list_report.html', {'reports': reports})
 
+def personal_list(request):
+    reports = Report.objects.filter(author=request.user)
+    return render(request, 'main/personal_list.html', {'reports': reports})
+
+
 def list_resolved(request):
     reports = Report.objects.filter(is_resolved=True)
     #print(reports)
