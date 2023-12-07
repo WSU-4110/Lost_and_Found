@@ -41,7 +41,7 @@
     }
     
     form input[type="submit"]:hover {
-        background-color: #114b44;
+        background-color: #114b65;
     }
     
     align_left {
@@ -97,7 +97,10 @@
                     {% for discussion in discussions %}
                         {% if discussion.report.id == report.id %}
                             <p><strong>{{ discussion.author }}</strong> {{ discussion.text }}</p>
-                        {% endif %}
+                            {% else %}
+                            <p>No comments yet</p>
+                            {% endif %}
+                        
                     {% endfor %}
                     <form method="POST" action="{% url 'add_comment' report.id %}">
                         {% csrf_token %}
@@ -112,5 +115,9 @@
         {% endfor %}
     </ul>
 
-
+    {% for discussion in discussions %}
+    <small>{{ discussion.report.id }}</small>
+     
+     <p><small>{{ discussion.date_created}} </small><strong>{{ discussion.author }}</strong> {{ discussion.text }} </p>
+   {% endfor %}
 {% endblock %}

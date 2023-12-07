@@ -110,13 +110,6 @@
                   >Home</a
                 >
 
-                <li>
-                  <a
-                    href="{% url 'create_post' %}"
-                    class="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
-                    aria-current="page"
-                    >Send Message</a>
-                </li>
               </li>
               <li>
                 <a
@@ -153,10 +146,11 @@
               </li>
               <li>
                 <a
-                  href="#"
+                  href="{% url 'list_discussions' %}"
                   class="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
                   aria-current="page"
-                  ><button id="open-btn">Open Chat</button></a>
+                  >Discussion</a
+                >
               </li>
               <li>
                 <a

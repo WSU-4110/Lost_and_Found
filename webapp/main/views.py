@@ -69,6 +69,7 @@ def list_report(request):
 
 def add_comment(request, report_id):
     report = Report.objects.get(id=report_id)
+    discussion = Discussion.objects.filter(report=report).order_by('-date_created')
     if request.method == 'POST':
         form = DiscussionForm(request.POST)
         if form.is_valid():
@@ -80,6 +81,10 @@ def add_comment(request, report_id):
     else:
         form = DiscussionForm()
     return render(request, 'main/add_comment.html', {'form': form})
+
+def list_discussions(request):
+    discussions = Discussion.objects.all().order_by('-date_created')
+    return render(request, 'main/list_discussions.html', {'discussions': discussions})
 
 
 def personal_list(request):
@@ -234,7 +239,7 @@ def create_report(request):
             brand = form.cleaned_data.get('Brand')
             location = form.cleaned_data.get('Location')
             category = form.cleaned_data.get('Category')
-            description = form.cleaned_data.get('description')
+            description = form.cleaned_data.get('Description')
             image_link = form.cleaned_data.get('image_link')
             author = User.objects.get(username=request.user.username)
             report = Report.objects.create(Name=name, Brand=brand, Location=location, Category=category, description=description, author=author, image_link=image_link)
