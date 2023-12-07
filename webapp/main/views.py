@@ -357,3 +357,18 @@ def report_form(request):
         form = ReportForm()
 
     return render(request, 'main/create_report.html', {'form': form})
+
+
+from django.shortcuts import render, get_object_or_404
+from .models import Report, Discussion
+
+def discussion_page(request, report_id):
+    # Retrieve the report object based on the report_id
+    report = get_object_or_404(Report, id=report_id)
+
+    # Retrieve all discussions related to the specific report
+    discussions = Discussion.objects.filter(report=report)
+
+    # Pass the report and discussions to the template context
+    context = {'report': report, 'discussions': discussions}
+    return render(request, 'main/discussion_page.html', context)
