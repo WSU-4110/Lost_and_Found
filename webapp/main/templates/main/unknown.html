@@ -25,24 +25,17 @@
   <p>This is the discussion page for report with id: {{ discussion.report.id }}</p>
 
   <!-- Display all discussions related to the specific report -->
-  <div class="box" style="font-size: 14px; 
-        border: 1px solid black;
-        padding: 10px;
-        width: 100%;
-        border-radius: 5px;
-        margin: 25px;">
+  <div class="box">
   {% for discussion in discussions %}
     {% if discussion.report.id == report.id %}
     <div class="box-style">
-        <p style="font-size: 14px; 
-        border: 1px solid black;
-        padding: 10px;
-        width: 300px;
-        border-radius: 5px;
-        margin: 25px;"><strong>{{ discussion.author }}</strong> : <small style="text-color: gray;">{{ discussion.date_created }}</small> <br>{{ discussion.text }}</p>
+        <p><small>{{ discussion.date_created }}</small> <strong>{{ discussion.author }}</strong> {{ discussion.text }}</p>
       </div>
     {% endif %}
   {% endfor %}
   </div>
+
+  <h2>Discussion</h2>
+  <!-- Here you can add the discussion related content -->
 
 {% endblock %}

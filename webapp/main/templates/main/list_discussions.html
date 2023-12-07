@@ -1,10 +1,48 @@
-{% extends 'main/base.html' %}
+{% extends 'main/base.html' %} 
+{% block title %} Create a Report {% endblock %}
+{% load crispy_forms_tags %} 
+<style>
+    .box {
+        border: 1px solid black;
+        padding: 10px;
+        width: 300px;
+        margin: 25px;
+       }
+       
+       /* The style inside the box */
+       .box-style {
+        color: red;
+        font-size: 14px;
+        }
+</style>
 
 {% block content %}
-  <h2>All Discussions</h2>
+  <h2 style="
+  padding: 10px;
+  width: 100dp;
+  border-radius: 5px;
+  margin: 25px;
+  background-color: #f2f2f2;"
+  >All Discussions</h2>
+
+  <div style="font-size: 14px; 
+  border: 1px solid #f2f2f2;
+  padding: 10px;
+  width: 100dp;
+  border-radius: 5px;
+  margin: 25px;">
   {% for discussion in discussions %}
-   <small>{{ discussion.report.id }}</small>
+    <div class="box" style="font-size: 14px; 
     
-    <p><small>{{ discussion.date_created}} </small><strong>{{ discussion.author }}</strong> {{ discussion.text }} </p>
+    background-color: #f2f2f2;
+    padding: 10px;
+    width: 300dp;
+    border-radius: 5px;
+    margin: 25px;">
+       
+       <p><small class="box-style" >{{ discussion.report.id }} {{ discussion.report.Name }}</small> <br><small>{{ discussion.date_created}} </small> / <strong>{{ discussion.author }}</strong><br> 
+        <div style="padding: 10px; size: 16px; background-color: white; border-radius: 5px;">{{ discussion.text }} </div></p>
+    </div>
   {% endfor %}
+  </div>
 {% endblock %}
