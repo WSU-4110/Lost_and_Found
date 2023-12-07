@@ -108,8 +108,19 @@ INSTALLED_APPS = [
 #### Configure crispy-forms in your settings.py
 
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'  # Use 'bootstrap4' or another supported template pack
+CRISPY_TEMPLATE_PACK = 'bootstrap5'  # Use 'bootstrap5' or another supported template pack
 
+### Installing crispy-bootstrap5
+
+After installing Django and django-crispy-forms, follow these steps to install crispy-bootstrap5:
+
+1. **Install `django-crispy-forms` (if not installed already):**
+   ```bash
+   pip install django-crispy-forms
+
+2. **Install `crispy-bootstrap5`:**
+   ```bash
+   pip install crispy-bootstrap5
 
 
 
