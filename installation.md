@@ -57,4 +57,12 @@ After installing Python, follow these steps to install Django 4.2 using pip (Pyt
    ```bash
    pip install Django==4.2
 
+### Verifying Installation
+
+Once the installation is complete, verify the Django version:
+
+- Open a terminal or command prompt.
+- Type `python -m django --version` or `python3 -m django --version` and press Enter.
+- The output should display the installed Django version.
+
 Now, you're ready to proceed with setting up and running your project!
