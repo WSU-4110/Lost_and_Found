@@ -83,35 +83,27 @@ Once the installation is complete, verify the Django version:
 - Type `python -m django --version` or `python3 -m django --version` and press Enter.
 - The output should display the installed Django version.
 
-============
-Installation
-============
 
-.. _`install`:
+##Installation of Django Crispy Forms
 
-Installing django-crispy-forms
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Install latest stable version into your python environment using pip::
+After installing Django, follow these steps to install django-crispy-forms using pip:
 
-    pip install django-crispy-forms
+1. Open a terminal or command prompt.
 
-If you want to install development version (unstable), you can do so doing::
+2. Install django-crispy-forms using pip:
+   ```bash
+   pip install django-crispy-forms
 
-    pip install git+git://github.com/django-crispy-forms/django-crispy-forms.git@main#egg=django-crispy-forms
+Once installed, add 'crispy_forms' to your Django project's INSTALLED_APPS in the settings.py file:
 
-Or, if you'd like to install the development version as a git repository (so
-you can ``git pull`` updates), use the ``-e`` flag with ``pip install``, like
-so:: 
+settings.py
 
-    pip install -e git+git://github.com/django-crispy-forms/django-crispy-forms.git@main#egg=django-crispy-forms
+INSTALLED_APPS = [
+    # Other installed apps...
+    'crispy_forms',
+]
 
-Once installed add ``crispy_forms`` to your ``INSTALLED_APPS`` in settings.py::
-
-    INSTALLED_APPS = (
-        ...
-        'crispy_forms',
-    )
 
 
 Now, you're ready to proceed with setting up and running your project!
