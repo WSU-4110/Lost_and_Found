@@ -98,15 +98,15 @@ After installing Django, follow these steps to install django-crispy-forms using
 
 Once installed, add 'crispy_forms' to your Django project's INSTALLED_APPS in the settings.py file:
 
-settings.py
+#### Add add 'crispy_forms' to settings.py
 
 INSTALLED_APPS = [
     # Other installed apps...
     'crispy_forms',
 ]
 
-Configure crispy-forms in your settings.py
-# settings.py
+#### Configure crispy-forms in your settings.py
+
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'  # Use 'bootstrap4' or another supported template pack
 
