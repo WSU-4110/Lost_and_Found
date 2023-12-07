@@ -66,6 +66,19 @@
         padding-left: 100px;
         padding-right: 100px;
     }
+
+    .green_btn:hover {
+        background-color: #114b55;
+      }
+
+    .green_btn {
+        background-color: #114b40;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px; 
+        padding-left: 46%;
+        padding-right: 50%;
+    }
 </style>
 
 
@@ -75,21 +88,7 @@
 
 <div class="box_post">
 <div id="additional_padding">
-<button id="expandButton" type="button">Search</button>
-</div>
 
-<div id="expandableSection" style="display: none;">
-    <form method="get">
-        <label for="date">Search by date:</label>
-        <input type="date" id="date" name="date">
-        <input type="submit" value="Search">
-    </form>
-
-    <form method="get">
-        <label for="title">Search by title:</label>
-        <input type="text" id="title" name="title">
-        <input type="submit" value="Search">
-    </form>
 </div>
 
 {% load crispy_forms_tags %} 
@@ -97,10 +96,8 @@
 
 
 <a
-href="{% url 'create_post' %}"
-class="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
- aria-current="page"
- ><button>Send</button></a>
+  href="{% url 'create_post' %}"
+  class="green_btn"> Send </a>
 
 
 
