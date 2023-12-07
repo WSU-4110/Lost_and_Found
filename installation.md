@@ -1,6 +1,6 @@
-# Project Name - Installation Guide
+# Lost and Found - Installation Guide
 
-This guide provides step-by-step instructions on how to install Python for your project.
+This guide provides step-by-step instructions on how to install Python and Django for Lost and Found webapp.
 
 ## System Requirements
 
