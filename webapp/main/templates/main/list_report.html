@@ -37,6 +37,7 @@
         cursor: pointer;
         border-radius: 5px; 
         padding: 10px 20px;
+        width: 100dp;
         
     }
     
@@ -107,8 +108,14 @@
                         <input type="text" name="text">
                         <input type="submit" value="Add Comment">
                         <!--yuliyas-->
-                        <a href="{% url 'discussion_page' report.id %}">Go to Discussion</a>
                     </form>
+                    <p></p>
+                    <form method="POST" action="{% url 'discussion_page' report.id %}">
+                        {% csrf_token %}
+                        <input type="submit" value="Go to Discussion">
+                        <!--yuliyas-->
+                    </form>
+                  
                     <!--yuliyas-->
                 </div>
             </li>
