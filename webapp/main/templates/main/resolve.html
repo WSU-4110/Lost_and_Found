@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %} {% block title %} Create a Report {% endblock %}
+{% load crispy_forms_tags %} {% block content %}
+
+<h1>Report List</h1>
+
+{% for post in posts %}
+<div class="card mt-2">
+  <!-- Post Content -->
+  <div class="card-body">
+    <h2 class="card-title">{{ post.title }}</h2>
+    <p>{{ post.description }}</p>
+    <!-- Show is_resolved status -->
+    <p>Status: {{ post.is_resolved|yesno:"Resolved,Not Resolved" }}</p>
+  </div>
+  <!-- Button to mark as resolved -->
+  <div class="card-footer">
+    <form action="{% url 'toggle_resolve' post.id %}" method="post">
+      {% csrf_token %}
+      <button type="submit" class="btr_resolve">Mark as Resolved</button>
+    </form>
+  </div>
+</div>
+{% empty %}
+<p>No posts here yet ....</p>
+{% endfor %} {% endblock %}

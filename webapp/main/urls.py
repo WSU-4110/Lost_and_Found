@@ -20,5 +20,11 @@ urlpatterns = [
     path('list_report/', views.list_report, name='list_report'),
     #path('upload/', views.image_upload, name='upload'),
     path('delete_report/<int:report_id>/', views.delete_report, name='delete_report'),
+
     #path('create_report/report_form', views.report_form, name='report_form'),
+
+    path('create_report/report form', views.report_form, name='report_form'),
+    path('resolve/', views.resolve, name='resolve'),
+    path('post/<int:post_id>/resolve/', views.toggle_resolve, name='toggle_resolve'),
+
 ]

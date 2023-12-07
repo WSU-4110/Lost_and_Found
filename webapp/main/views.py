@@ -11,7 +11,7 @@ from datetime import datetime
 from .forms import RegisterForm
 import random
 from django.shortcuts import render, get_object_or_404
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 #from .models import ChatRoom, Message
 #from .forms import MessageForm
 from django.core.mail import send_mail
@@ -265,7 +265,9 @@ def image_upload(request):
     return render(request, 'main/image_upload.html', {'form': form})
 
 
-'''
+
+
+
 def report_form(request):
     if request.method == 'POST':
         form = ReportForm(request.POST)
@@ -279,5 +281,3 @@ def report_form(request):
         form = ReportForm()
 
     return render(request, 'main/create_report.html', {'form': form})
-
-    '''
