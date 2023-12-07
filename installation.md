@@ -39,7 +39,7 @@ For versions below 3.10, you can use various methods:
 - For Windows and macOS, visit the [Python downloads page](https://www.python.org/downloads/) and choose the desired version from the list of releases.
 - On Linux, use your package manager or compile from source if the desired version is not available in the repositories.
 
-## Verifying Installation
+### Verifying Installation
 
 Once the installation is complete, verify the Python version:
 
@@ -47,7 +47,7 @@ Once the installation is complete, verify the Python version:
 - Type `python --version` or `python3 --version` and press Enter.
 - The output should display the installed Python version.
 
-### Installing Django 4.2
+## Installing Django 4.2
 
 After installing Python, follow these steps to install Django 4.2 using pip (Python's package manager):
 
