@@ -357,3 +357,13 @@ def report_form(request):
         form = ReportForm()
 
     return render(request, 'main/create_report.html', {'form': form})
+
+
+
+
+def discussion_page(request, report_id):
+    # Get the discussions for the report with the given id
+    discussions = Discussion.objects.filter(report_id=report_id)
+
+    # Render a template with these discussions
+    return render(request, 'discussion_page.html', {'discussions': discussions})
