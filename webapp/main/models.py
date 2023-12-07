@@ -19,7 +19,7 @@ class Report(models.Model):
     Brand = models.CharField(max_length=200)
     Location = models.CharField(max_length=200)
     Category = models.CharField(max_length=200)
-    Description = models.CharField(max_length=400)
+    description = models.TextField()
     date_created= models.DateTimeField(auto_now_add=True)
     date_updated= models.DateTimeField(auto_now=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)

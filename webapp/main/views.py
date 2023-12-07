@@ -22,10 +22,22 @@ from .forms import DiscussionForm
 from .models import Discussion
 import cv2
 import numpy as np
+from django.utils import timezone
+import pytz
+
+
+# Get the current time in UTC
+now_utc = timezone.now()
+
+# Convert to Eastern Time
+eastern_tz = pytz.timezone('America/New_York')
+now_eastern = now_utc.astimezone(eastern_tz)
 
 # Create your views here.
 #@login_required(login_url='/login')
 def home(request):
+
+    eastern = pytz.timezone('US/Eastern')
     date = request.GET.get('date')
     title = request.GET.get('title')
     if date:
@@ -239,7 +251,7 @@ def create_report(request):
             brand = form.cleaned_data.get('Brand')
             location = form.cleaned_data.get('Location')
             category = form.cleaned_data.get('Category')
-            description = form.cleaned_data.get('Description')
+            description = form.cleaned_data.get('description')
             image_link = form.cleaned_data.get('image_link')
             author = User.objects.get(username=request.user.username)
             report = Report.objects.create(Name=name, Brand=brand, Location=location, Category=category, description=description, author=author, image_link=image_link)
