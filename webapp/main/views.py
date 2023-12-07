@@ -38,8 +38,29 @@ def home(request):
 
 
 def list_report(request):
-    reports = Report.objects.filter(is_resolved=False)
+    #reports = Report.objects.filter(is_resolved=False)
     #print(reports)
+    name = request.GET.get('name')
+    date_str = request.GET.get('date')
+    brand = request.GET.get('brand')
+    place = request.GET.get('location')
+    category = request.GET.get('category')
+    author = request.GET.get('author')
+    if name:
+        reports = Report.objects.filter(Name__icontains=name, is_resolved=False)
+    elif date_str:
+        date = datetime.strptime(date_str, '%Y-%m-%d').date()
+        reports = Report.objects.filter(date_created=date, is_resolved=False)
+    elif brand:
+        reports = Report.objects.filter(Brand__icontains=brand, is_resolved=False)
+    elif place:
+        reports = Report.objects.filter(Location__icontains=place, is_resolved=False)
+    elif category:
+        reports = Report.objects.filter(Category__icontains=category, is_resolved=False)    
+    elif author:
+        reports = Report.objects.filter(author__username__icontains=author, is_resolved=False)  
+    else:
+        reports = Report.objects.filter(is_resolved=False)
     return render(request, 'main/list_report.html', {'reports': reports})
 
 def list_resolved(request):

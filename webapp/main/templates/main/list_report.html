@@ -51,6 +51,17 @@
     
 </style>
 
+<form method="GET" action="">
+    <input type="text" name="name" placeholder="Search by name">
+    <input type="text" name="brand" placeholder="Search by brand">
+    <input type="text" name="location" placeholder="Search by location">
+    <input type="text" name="category" placeholder="Search by category">
+    <input type="text" name="author" placeholder="Search by author">
+    
+    <input type="date" name="date">
+    <input type="submit" value="Search">
+</form>
+
     <ul>
         {% for report in reports %}
         {% if not report.is_resolved %}
