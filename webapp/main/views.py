@@ -38,9 +38,14 @@ def home(request):
 
 
 def list_report(request):
-    reports = Report.objects.all()
+    reports = Report.objects.filter(is_resolved=False)
     #print(reports)
     return render(request, 'main/list_report.html', {'reports': reports})
+
+def list_resolved(request):
+    reports = Report.objects.filter(is_resolved=True)
+    #print(reports)
+    return render(request, 'main/list_resolved.html', {'reports': reports})
 
 @login_required
 def create_post(request):
@@ -201,6 +206,15 @@ def delete_report(request, report_id):
         report.is_resolved = True
         report.delete()
     return redirect('list_report')
+
+
+def resolve_report(request, report_id):
+    report = get_object_or_404(Report, id=report_id)
+    if request.user == report.author:
+        report.is_resolved = True
+        report.save()
+    return redirect('list_report')
+
 
 
 def preprocess_image(image_path):

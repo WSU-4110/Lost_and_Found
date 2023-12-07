@@ -4,9 +4,7 @@
 {% block content %}
 
 <style> 
-    body { 
-        font-family: Arial, sans-serif; 
-    } 
+    
     .report { 
         width: 300px; 
         border: 1px solid #ccc; 
@@ -53,11 +51,8 @@
     
 </style>
 
-
-    <h1>Report List</h1>
     <ul>
         {% for report in reports %}
-        {% if not report.is_resolved %}
         <div class="report">
             <li>
                 <p><strong>{{ report.author }}</strong> </p>
@@ -68,24 +63,11 @@
                 <p><strong>Category:</strong> {{ report.Category }}</p>
                 <p>{{ report.description }}</p>
                 <p><strong>Created:</strong> {{ report.date_created }}</p>
-                
-                
-                {% if user == report.author %}
-                <form method="POST" action="{% url 'delete_report' report.id %}">
-                    {% csrf_token %}
-                    <input type="submit" value="Delete">
-                </form>
-                <form method="POST" action="{% url 'resolve_report' report.id %}">
-                    {% csrf_token %}
-                    <input type="submit" value="Resolve">
-                </form>
-                
-                {% endif %}
                 <br>
-                <div id="align_left"><small>{{ report.date_updated }}</small></div>
+                <div id="align_left"><small>resolved on: {{ report.date_updated }}</small></div>
+            
             </li>
         </div>
-        {% endif %}
         {% endfor %}
     </ul>
 
