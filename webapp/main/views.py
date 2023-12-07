@@ -265,17 +265,19 @@ def image_upload(request):
     return render(request, 'main/image_upload.html', {'form': form})
 
 
-
-
-
+'''
 def report_form(request):
     if request.method == 'POST':
         form = ReportForm(request.POST)
         if form.is_valid():
             # process the data in form.cleaned_data
-            # ...
-            pass
+            report = form.save(commit=False)
+            report.author = request.user
+            report.save()
+            return redirect('reports')  # replace 'reports' with the name of the view where you list the reports
     else:
         form = ReportForm()
 
     return render(request, 'main/create_report.html', {'form': form})
+
+    '''
