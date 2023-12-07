@@ -4,9 +4,7 @@
 {% block content %}
 
 <style> 
-    body { 
-        font-family: Arial, sans-serif; 
-    } 
+    
     .report { 
         width: 300px; 
         border: 1px solid #ccc; 
@@ -53,8 +51,6 @@
     
 </style>
 
-
-    <h1>Report List</h1>
     <ul>
         {% for report in reports %}
         {% if not report.is_resolved %}
@@ -62,15 +58,17 @@
             <li>
                 <p><strong>{{ report.author }}</strong> </p>
                 <h2>{{ report.Name }}</h2>
-                <img src="{{ report.image_link }}" alt="{{ report.Name }}">
                 <p><strong>Brand:</strong> {{ report.Brand }}</p>
                 <p><strong>Location:</strong> {{ report.Location }}</p>
                 <p><strong>Category:</strong> {{ report.Category }}</p>
-                <p>{{ report.description }}</p>
-                <p><strong>Created:</strong> {{ report.date_created }}</p>
+                
+                <p><strong>Reported:</strong> {{ report.date_created }}</p>
+                <p><i>{{ report.description }}</i></p>
+                <br>
+                <img src="{{ report.image_link }}" alt="{{ report.Name }}">
                 
                 
-                {% if user == report.author %}
+                {% if user == report.author or user.username == "yvaskiv" %}
                 <form method="POST" action="{% url 'delete_report' report.id %}">
                     {% csrf_token %}
                     <input type="submit" value="Delete">

@@ -57,14 +57,15 @@
             <li>
                 <p><strong>{{ report.author }}</strong> </p>
                 <h2>{{ report.Name }}</h2>
-                <img src="{{ report.image_link }}" alt="{{ report.Name }}">
                 <p><strong>Brand:</strong> {{ report.Brand }}</p>
                 <p><strong>Location:</strong> {{ report.Location }}</p>
                 <p><strong>Category:</strong> {{ report.Category }}</p>
-                <p>{{ report.description }}</p>
-                <p><strong>Created:</strong> {{ report.date_created }}</p>
+                
+                <p><strong>Reported:</strong> {{ report.date_created }}</p>
+                <p><i>{{ report.description }}</i></p>
                 <br>
-                <div id="align_left"><small>resolved on: {{ report.date_updated }}</small></div>
+                <img src="{{ report.image_link }}" alt="{{ report.Name }}">
+                <div id="align_left"><small>{{ report.date_updated }}</small></div>
             
             </li>
         </div>
