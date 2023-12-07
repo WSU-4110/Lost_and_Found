@@ -1,0 +1,15 @@
+
+
+{% extends 'main/base.html' %}
+
+{% block content %}
+  <h2>Add a comment</h2>
+  {% for discussion in discussions %}
+    <p><strong>{{ discussion.author }}</strong> {{ discussion.text }}</p>
+  {% endfor %}
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Comment</button>
+  </form>
+{% endblock %}

@@ -5,6 +5,7 @@ from .models import Post
 from django.core.exceptions import ValidationError
 #from .models import Message
 from .models import Report
+from .models import Discussion
 
 class RegisterForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -79,3 +80,9 @@ class ReportForm(forms.Form):
     }))
     #image = forms.ImageField()
     '''
+
+
+class DiscussionForm(forms.ModelForm):
+    class Meta:
+        model = Discussion
+        fields = ['text']

@@ -18,6 +18,8 @@ from django.core.mail import send_mail
 from datetime import datetime, timedelta
 from .models import Report
 from .forms import ReportForm
+from .forms import DiscussionForm
+from .models import Discussion
 import cv2
 import numpy as np
 
@@ -61,7 +63,24 @@ def list_report(request):
         reports = Report.objects.filter(author__username__icontains=author, is_resolved=False)  
     else:
         reports = Report.objects.filter(is_resolved=False)
+    discussion = Discussion.objects.filter(report__in=reports).order_by('-date_created')
     return render(request, 'main/list_report.html', {'reports': reports})
+
+
+def add_comment(request, report_id):
+    report = Report.objects.get(id=report_id)
+    if request.method == 'POST':
+        form = DiscussionForm(request.POST)
+        if form.is_valid():
+            discussion = form.save(commit=False)
+            discussion.report = report
+            discussion.author = request.user
+            discussion.save()
+            return redirect('list_report')
+    else:
+        form = DiscussionForm()
+    return render(request, 'main/add_comment.html', {'form': form})
+
 
 def personal_list(request):
     reports = Report.objects.filter(author=request.user)

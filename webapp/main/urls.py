@@ -23,6 +23,8 @@ urlpatterns = [
     path('delete_report/<int:report_id>/', views.delete_report, name='delete_report'),
     path('resolve_report/<int:report_id>/', views.resolve_report, name='resolve_report'),
     path('personal_list', views.personal_list, name='personal_list'),
+    path('add_comment/<int:report_id>/', views.add_comment, name='add_comment'),
+
 
     #path('create_report/report_form', views.report_form, name='report_form'),
 

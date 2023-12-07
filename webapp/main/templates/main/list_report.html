@@ -92,7 +92,21 @@
                 {% endif %}
                 <br>
                 <div id="align_left"><small>{{ report.date_updated }}</small></div>
+
+                <div class="comments">
+                    {% for discussion in discussions %}
+                        {% if discussion.report.id == report.id %}
+                            <p><strong>{{ discussion.author }}</strong> {{ discussion.text }}</p>
+                        {% endif %}
+                    {% endfor %}
+                    <form method="POST" action="{% url 'add_comment' report.id %}">
+                        {% csrf_token %}
+                        <input type="text" name="text">
+                        <input type="submit" value="Add Comment">
+                    </form>
+                </div>
             </li>
+
         </div>
         {% endif %}
         {% endfor %}
