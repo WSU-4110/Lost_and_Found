@@ -83,8 +83,9 @@ Once the installation is complete, verify the Django version:
 - Type `python -m django --version` or `python3 -m django --version` and press Enter.
 - The output should display the installed Django version.
 
+## Additional Package Installation
 
-##Installation of Django Crispy Forms
+### Installation of Django Crispy Forms
 
 
 After installing Django, follow these steps to install django-crispy-forms using pip:
@@ -103,6 +104,8 @@ INSTALLED_APPS = [
     # Other installed apps...
     'crispy_forms',
 ]
+
+Configure crispy-forms in your settings.py
 
 
 
