@@ -23,7 +23,7 @@ urlpatterns = [
 
     #path('create_report/report_form', views.report_form, name='report_form'),
 
-    path('create_report/report form', views.report_form, name='report_form'),
+    #path('create_report/report form', views.report_form, name='report_form'),
     path('resolve/', views.resolve, name='resolve'),
     path('post/<int:post_id>/resolve/', views.toggle_resolve, name='toggle_resolve'),
 
