@@ -5,16 +5,39 @@
 
 <style>
   .grid-container {
+    
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.6fr 1fr;
     padding: 10px;
   }
+  @media screen and (max-width: 599px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+  }
+  .image{
+    width:500px;
+
+  }
+  @media screen and (max-width: 599px) {
+    .image {
+        display: none;
+    }
+  }
   .box_post {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
     grid-column: 1;
-    padding: 50px;
+    padding: 80px;
+
   }
   .box_post input {
     width: 100%;
+  }
+  .report{
+    background-color: beige;
+    border-radius: 10% 00% 0% 60%;
+    padding-left: 80px;
   }
 
   textarea {
@@ -36,16 +59,19 @@
 
 <div class="grid-container">
   
-  <div>
-    <img class="PersonIcon" src="../../../static/images/pikachu.png" alt="PersonIcon" height="1300px" width="1300px" margin-left="200px"/>
+  <div class="image">
+    <img class="PersonIcon" src="../../../static/images/post.png" alt="PersonIcon" height="1300px" width="1300px" margin-left="200px"/>
   </div>
+  <div class="report">
     <form method="POST">
-      <button type="submit" class="btn btn-green">Submit</button>
       <div class="box_post">
       {% csrf_token %}
       {{ form|crispy }}
-    </div>
+       </div>
+      <button type="submit" class="btn btn-green">Submit</button>
     </form>
+  </div>
+    
   
   
 </div>
