@@ -27,6 +27,9 @@ urlpatterns = [
     path('list_discussions', views.list_discussions, name='list_discussions'),
     # yuliyas
     path('discussion_page/<int:report_id>/', views.discussion_page, name='discussion_page'),
+    path('discussion/<int:report_id>/', views.discussion_page, name='discussion_page'),
+
+
 
     #path('create_report/report_form', views.report_form, name='report_form'),
 
