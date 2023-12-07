@@ -2,6 +2,24 @@
 
 This guide provides step-by-step instructions on how to install Python for your project.
 
+## System Requirements
+
+Before installing Python and Django, ensure that your system meets the following requirements:
+
+### For Python 3.10
+
+- **Operating System:** Compatible with Windows, macOS, or Linux distributions.
+- **Disk Space:** Approximately 200 MB for Python installation.
+- **Memory (RAM):** At least 1 GB for smooth operation.
+
+### For Django 4.2
+
+- **Python:** Compatible with Python 3.10 (as specified in this guide).
+- **Operating System:** Compatible with Windows, macOS, or Linux distributions.
+- **Disk Space:** Additional space required for Django and project files.
+- **Memory (RAM):** At least 2 GB is recommended for Django projects.
+
+
 ## Python Installation
 
 ### Installing Python 3.10
