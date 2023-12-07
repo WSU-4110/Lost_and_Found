@@ -74,8 +74,8 @@ def list_report(request):
     elif author:
         reports = Report.objects.filter(author__username__icontains=author, is_resolved=False)  
     else:
-        reports = Report.objects.filter(is_resolved=False)
-    discussion = Discussion.objects.filter(report__in=reports).order_by('-date_created')
+        reports = Report.objects.filter(is_resolved=False).order_by('-date_created')
+    discussion = Discussion.objects.filter(report__in=reports)
     return render(request, 'main/list_report.html', {'reports': reports})
 
 
