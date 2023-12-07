@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+  <h1>Discussion Page</h1>
+
+  <p>This is the discussion page for report with id: {{ discussion.report.id }}</p>
+
+  <!-- Display all discussions related to the specific report -->
+  {% for discussion in discussions %}
+    {% if discussion.report.id == report.id %}
+      <div>
+        <p><small>{{ discussion.date_created }}</small> <strong>{{ discussion.author }}</strong> {{ discussion.text }}</p>
+      </div>
+    {% endif %}
+  {% endfor %}
+
+  <!-- Add a new discussion -->
+  <h2>Discussion</h2>
+  <!-- Here you can add the discussion related content -->
+
+{% endblock %}
