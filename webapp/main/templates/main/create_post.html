@@ -3,24 +3,61 @@
 {% load crispy_forms_tags %} 
 {% block content %}
 
+<style>
+    .form-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f8f9fa;
+    }
 
-<div style="border: 1px solid #ccc; border-radius: 10px; padding: 20px;">
+    form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        width: 50%;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-control {
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        padding: 10px;
+    }
+
+    #post {
+        margin-top: 10px;
+        color: white;
+        background-color: #4CAF50;
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    
+</style>
+<div class="form-container">
 <form method="post">
     {% csrf_token %}
     {{ form.non_field_errors }}
     <div class="form-group">
         {{ form.title.errors }}
 
-        <label for="{{ form.title.id_for_label }}">Title:</label>
-        <input type="text" class="form-control" id="{{ form.title.id_for_label }}" name="{{ form.title.html_name }}" value="{{ form.title.value|default_if_none:'' }}">
+        <label for="{{ form.title.id_for_label }}class="title"></label>
+        <textarea class="form-control" id="{{ form.title.id_for_label }}" name="{{ form.title.html_name }}" placeholder="Title">{{ form.title.value|default_if_none:'' }}</textarea>
+
     </div>
     <div class="form-group">
         {{ form.description.errors }}
-        <label for="{{ form.description.id_for_label }}">Description:</label>
-        <textarea class="form-control" id="{{ form.description.id_for_label }}" name="{{ form.description.html_name }}">{{ form.description.value|default_if_none:'' }}</textarea>
+        <label for="{{ form.description.id_for_label }} class="des"></label>
+        <textarea class="form-control1" id="{{ form.description.id_for_label }}" name="{{ form.description.html_name }}" placeholder="What's on your mind">{{ form.description.value|default_if_none:'' }}</textarea>
     </div>
     <!-- Repeat for other fields -->
-    <button type="submit" class="btn btn-success">Post</button>
+    <button type="submit" class="btn btn-success"id ="post">Post</button>
 </form>
 </div>
 

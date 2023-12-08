@@ -20,10 +20,11 @@ from .models import Report
 from .forms import ReportForm
 from .forms import DiscussionForm
 from .models import Discussion
-import cv2
+import cv2,re,pytesseract
 import numpy as np
 from django.utils import timezone
 import pytz
+from PIL import Image, ImageOps
 
 
 # Get the current time in UTC
@@ -256,7 +257,7 @@ def create_report(request):
             author = User.objects.get(username=request.user.username)
             report = Report.objects.create(Name=name, Brand=brand, Location=location, Category=category, description=description, author=author, image_link=image_link)
             report.save()
-            return redirect('home')
+            return redirect('list_report')
     return render(request, 'main/create_report.html', {'form': form})
 
 
