@@ -22,24 +22,25 @@
 {% block content %}
   <h1>Discussion Page</h1>
 
-  <p>This is the discussion page for report with id: {{ discussion.report.id }}</p>
-
+  
   <!-- Display all discussions related to the specific report -->
   <div class="box" style="font-size: 14px; 
-        border: 1px solid black;
+        border: 1px solid #f2f2f2;
         padding: 10px;
-        width: 100%;
+        width: 100dp;
         border-radius: 5px;
         margin: 25px;">
   {% for discussion in discussions %}
     {% if discussion.report.id == report.id %}
+    <small>{{ discussion.report.id }} {{ discussion.report.Name }} {{ discussion.report.date_created }}: <small>
+    
     <div class="box-style">
         <p style="font-size: 14px; 
-        border: 1px solid black;
+        background-color: #f2f2f2;
         padding: 10px;
-        width: 300px;
+        width: 300dp;
         border-radius: 5px;
-        margin: 25px;"><strong>{{ discussion.author }}</strong> : <small style="text-color: gray;">{{ discussion.date_created }}</small> <br>{{ discussion.text }}</p>
+        margin: 25px;" ><strong>{{ discussion.author }}</strong> : <small style="text-color: gray;">{{ discussion.date_created }}</small> <br>{{ discussion.text }}</p>
       </div>
     {% endif %}
   {% endfor %}

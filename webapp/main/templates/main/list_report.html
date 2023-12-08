@@ -37,7 +37,6 @@
         cursor: pointer;
         border-radius: 5px; 
         padding: 10px 20px;
-        align: center;
         
     }
     
@@ -135,25 +134,9 @@
                         {% csrf_token %}
                         <input type="text" name="text">
                         <input type="submit" value="Add Comment">
-                        <br>
-                        <br>
-                        <a href="{% url 'discussion_page' report.id %}" class="dis">Discussion</a>
-                           <br>
-                        <br>
-                        
+                        <!--yuliyas-->
+                        <a href="{% url 'discussion_page' report.id %}">Go to Discussion</a>
                     </form>
-
-                    {% if user == report.author or user.is_staff %}
-                    <form method="POST" action="{% url 'delete_report' report.id %}">
-                        {% csrf_token %}
-                        <input type="submit" value="Delete">
-                    </form>
-                    <form method="POST" action="{% url 'resolve_report' report.id %}">
-                        {% csrf_token %}
-                        <input type="submit" value="Resolve">
-                    </form>
-                    
-                    {% endif %}
                     <!--yuliyas-->
                 </div>
             </li>
