@@ -1,0 +1,22 @@
+
+
+{% extends 'main/base.html' %} 
+{% block title %} Create a Report {% endblock %}
+{% load crispy_forms_tags %} 
+{% block content %}
+
+
+  <h2>Add a comment</h2>
+{% if discussions %}
+    {% for discussion in discussions %}
+        <p><strong>author: {{ discussion.author }}</strong> {{ discussion.text }}</p>
+    {% endfor %}
+    {% else %}
+    <p>No discussions for this report.</p>
+{% endif %}
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Comment</button>
+  </form>
+{% endblock %}

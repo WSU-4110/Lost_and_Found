@@ -1,0 +1,10 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+  <h2>All Discussions</h2>
+  {% for discussion in discussions %}
+   <small>{{ discussion.report.id }}</small>
+    
+    <p><small>{{ discussion.date_created}} </small><strong>{{ discussion.author }}</strong> {{ discussion.text }} </p>
+  {% endfor %}
+{% endblock %}

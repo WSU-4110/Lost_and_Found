@@ -61,6 +61,24 @@
         border-radius: 15px;
         width: 100%;
     }
+    .box_post {
+
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+
+    .green_btn:hover {
+        background-color: #114b55;
+      }
+
+    .green_btn {
+        background-color: #114b40;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px; 
+        padding-left: 46%;
+        padding-right: 50%;
+    }
 </style>
 
 
@@ -68,47 +86,18 @@
 {% block title %}Home{% endblock %}
 {% block content %}
 
+<div class="box_post">
 <div id="additional_padding">
-<button id="expandButton" type="button">Search</button>
-</div>
 
-<div id="expandableSection" style="display: none;">
-    <form method="get">
-        <label for="date">Search by date:</label>
-        <input type="date" id="date" name="date">
-        <input type="submit" value="Search">
-    </form>
-
-    <form method="get">
-        <label for="title">Search by title:</label>
-        <input type="text" id="title" name="title">
-        <input type="submit" value="Search">
-    </form>
 </div>
 
 {% load crispy_forms_tags %} 
 
 
 
-<div style="border: 1px solid #ccc; border-radius: 10px; padding: 20px;">
-<form method="post">
-    {% csrf_token %}
-    {{ form.non_field_errors }}
-    <div class="form-group">
-        {{ form.title.errors }}
-
-        <label for="{{ form.title.id_for_label }}"></label>
-        <input type="text" class="form-control rounded-input" id="{{ form.title.id_for_label }}" name="{{ form.title.html_name }}" value="{{ form.title.value|default_if_none:'' }}">
-    </div>
-    <div class="form-group">
-        {{ form.description.errors }}
-        <label for="{{ form.description.id_for_label }}"></label>
-        <textarea class="form-control rounded-input" id="{{ form.description.id_for_label }}" name="{{ form.description.html_name }}">{{ form.description.value|default_if_none:'' }}</textarea>
-    </div>
-    <!-- Repeat for other fields -->
-    <button type="submit" class="btn btn-success">Post</button>
-</form>
-</div>
+<a
+  href="{% url 'create_post' %}"
+  class="green_btn"> Send </a>
 
 
 
@@ -147,4 +136,6 @@
         });
         });
     </script>
+
+</div>
 {% endblock %}

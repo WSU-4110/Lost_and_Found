@@ -3,32 +3,121 @@
 {% load crispy_forms_tags %} 
 {% block content %}
 
+<style> 
+    
+    .report { 
+        width: 300px; 
+        border: 1px solid #ccc; 
+        border-radius: 4px; 
+        padding: 16px; 
+        margin: 16px; 
+        display: inline-block; 
+        background-color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    } 
+    .report h2 {
+        margin-top: 0; 
+    } 
+    .report img { 
+        width: 100%; 
+        height: auto; 
+    } 
+    .report p { 
+        margin: 8px 0; 
+    } 
+    .report .author { 
+        font-weight: bold; 
+    } 
+    .report form { 
+        display: inline-block; 
+    } 
+    form input[type="submit"] {
+        background-color: #114b40;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px; 
+        padding: 10px 20px;
+        
+    }
+    
+    form input[type="submit"]:hover {
+        background-color: #114b65;
+    }
+    
+    align_left {
+        padding-left: 50px;
+    }
+    
+    
+</style>
 
-    <h1>Report List</h1>
+<form method="GET" action="">
+    <input type="text" name="name" placeholder="Search by name">
+    <input type="text" name="brand" placeholder="Search by brand">
+    <input type="text" name="location" placeholder="Search by location">
+    <input type="text" name="category" placeholder="Search by category">
+    <input type="text" name="author" placeholder="Search by author">
+    
+    <input type="date" name="date">
+    <input type="submit" value="Search">
+</form>
+
     <ul>
         {% for report in reports %}
         {% if not report.is_resolved %}
+        <div class="report">
             <li>
+                <p><strong>{{ report.author }}</strong> </p>
                 <h2>{{ report.Name }}</h2>
-                <img src="{{ report.image_link }}" alt="{{ report.Name }}">
                 <p><strong>Brand:</strong> {{ report.Brand }}</p>
                 <p><strong>Location:</strong> {{ report.Location }}</p>
                 <p><strong>Category:</strong> {{ report.Category }}</p>
-                <p>{{ report.description }}</p>
-                <p><strong>Created:</strong> {{ report.date_created }}</p>
-                <p><strong>Updated:</strong> {{ report.date_updated }}</p>
-                <p><strong>Author:</strong> {{ report.author }}</p>
-                {% if user == report.author %}
+                
+                <p><strong>Reported:</strong> {{ report.date_created }}</p>
+                <p><i>{{ report.description }}</i></p>
+                <br>
+                <img src="{{ report.image_link }}" alt="{{ report.Name }}">
+                
+                
+                {% if user == report.author or user.username == "yvaskiv" %}
                 <form method="POST" action="{% url 'delete_report' report.id %}">
                     {% csrf_token %}
                     <input type="submit" value="Delete">
                 </form>
+                <form method="POST" action="{% url 'resolve_report' report.id %}">
+                    {% csrf_token %}
+                    <input type="submit" value="Resolve">
+                </form>
+                
                 {% endif %}
-                <br><br>
+                <br>
+                <div id="align_left"><small>{{ report.date_updated }}</small></div>
+
+                <div class="comments">
+                    {% for discussion in discussions %}
+                        {% if discussion.report.id == report.id %}
+                            <p><strong>{{ discussion.author }}</strong> {{ discussion.text }}</p>
+                            {% else %}
+                            <p>No comments yet</p>
+                            {% endif %}
+                        
+                    {% endfor %}
+                    <form method="POST" action="{% url 'add_comment' report.id %}">
+                        {% csrf_token %}
+                        <input type="text" name="text">
+                        <input type="submit" value="Add Comment">
+                    </form>
+                </div>
             </li>
+
+        </div>
         {% endif %}
         {% endfor %}
     </ul>
 
-
+    {% for discussion in discussions %}
+    <small>{{ discussion.report.id }}</small>
+     
+     <p><small>{{ discussion.date_created}} </small><strong>{{ discussion.author }}</strong> {{ discussion.text }} </p>
+   {% endfor %}
 {% endblock %}
