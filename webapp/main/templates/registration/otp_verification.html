@@ -50,6 +50,18 @@
             font-weight: bold;
 
         }
+        .otp_container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .lottie-animation {
+            width: 600px;
+            height: 600px;
+            /* Add additional styling as needed */
+        }
+
     </style>
 </head>
     <body>
@@ -62,17 +74,23 @@
             {% endfor %}
         </div>
     {% endif %}
-    <div class="otp_form">
+    <div class="otp_container">
+        <div class="otp_form">
 
-        <form method="POST" class="otp_post">
-            <h1>OTP Verification</h1>
-            {% csrf_token %}
-            <label for="otp"class="otp_title">Enter OTP:</label>
-            <input type="text" id="otp" class="otp_number" name="otp" required>
-            <input type="submit" class="otp_submit" value="Verify">
-            <p id="timer">02:00</p>
-        </form>
-        <img></img>
+            <form method="POST" class="otp_post">
+                <h1>OTP Verification</h1>
+                {% csrf_token %}
+                <label for="otp"class="otp_title">Enter OTP:</label>
+                <input type="text" id="otp" class="otp_number" name="otp" required>
+                <input type="submit" class="otp_submit" value="Verify">
+                <p id="timer">02:00</p>
+            </form>
+            <img></img>
+        </div>
+        <div class="lottie-animation" id="lottie">
+            <img src="../static/images/otp.gif" alt="Animation">
+            <!-- Lottie animation will go here -->
+        </div>
     </div>
 
         <script>
@@ -104,6 +122,7 @@
                 errorMessage.textContent = message;
                 messagesDiv.appendChild(errorMessage);
             }
+
         </script>
     </body>
 
