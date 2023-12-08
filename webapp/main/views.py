@@ -34,7 +34,7 @@ eastern_tz = pytz.timezone('America/New_York')
 now_eastern = now_utc.astimezone(eastern_tz)
 
 # Create your views here.
-#@login_required(login_url='/login')
+@login_required(login_url='/login')
 def home(request):
 
     eastern = pytz.timezone('US/Eastern')
