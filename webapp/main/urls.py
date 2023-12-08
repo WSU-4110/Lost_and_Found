@@ -25,6 +25,9 @@ urlpatterns = [
     path('personal_list', views.personal_list, name='personal_list'),
     path('add_comment/<int:report_id>/', views.add_comment, name='add_comment'),
     path('list_discussions', views.list_discussions, name='list_discussions'),
+    # yuliyas
+    path('discussion/<int:report_id>/', views.discussion_page, name='discussion_page'),
+
 
 
     #path('create_report/report_form', views.report_form, name='report_form'),
