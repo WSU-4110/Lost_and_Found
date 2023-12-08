@@ -79,7 +79,7 @@
                 <img src="{{ report.image_link }}" alt="{{ report.Name }}">
                 
                 
-                {% if user == report.author or user.username == "yvaskiv" %}
+                {% if user == report.author or user.is_staff %}
                 <form method="POST" action="{% url 'delete_report' report.id %}">
                     {% csrf_token %}
                     <input type="submit" value="Delete">
