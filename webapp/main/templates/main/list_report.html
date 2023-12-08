@@ -37,32 +37,72 @@
         cursor: pointer;
         border-radius: 5px; 
         padding: 10px 20px;
+        align: center;
         
     }
     
     form input[type="submit"]:hover {
         background-color: #114b65;
     }
-    
+    .form-grid input {
+        width:50%;
+        border-radius: 5px; 
+        padding: 5px 2px;
+    }
+   
+    }    
     align_left {
         padding-left: 50px;
+    }
+    .form-grid {
+        margin: 50px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+
+    .ul {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin: 50px;
+        justify-content: center;
+    }
+    @media screen and (max-width: 600px) {
+        .ul {
+            grid-template-columns: 1fr;
+        }
+    }
+    .dis{
+        background-color: #114b40;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px; 
+        padding: 10px 20px;
+        align: center;
+        text-decoration: none;
+      
     }
     
     
 </style>
 
-<form method="GET" action="">
-    <input type="text" name="name" placeholder="Search by name">
-    <input type="text" name="brand" placeholder="Search by brand">
-    <input type="text" name="location" placeholder="Search by location">
-    <input type="text" name="category" placeholder="Search by category">
-    <input type="text" name="author" placeholder="Search by author">
+<form method="GET" action="" class="form-grid" >
+    <input type="text" name="name" placeholder="Name">
+    <input type="text" name="brand" placeholder="Brand">
+    <input type="text" name="location" placeholder="Location">
+    <input type="text" name="category" placeholder="Category">
+    <input type="text" name="author" placeholder="Author">
     
     <input type="date" name="date">
     <input type="submit" value="Search">
 </form>
 
-    <ul>
+    <ul class="ul">
         {% for report in reports %}
         {% if not report.is_resolved %}
         <div class="report">
@@ -76,20 +116,9 @@
                 <p><strong>Reported:</strong> {{ report.date_created }}</p>
                 <p><i>{{ report.description }}</i></p>
                 <br>
-                <img src="{{ report.image_link }}" alt="{{ report.Name }}">
                 
                 
-                {% if user == report.author or user.is_staff %}
-                <form method="POST" action="{% url 'delete_report' report.id %}">
-                    {% csrf_token %}
-                    <input type="submit" value="Delete">
-                </form>
-                <form method="POST" action="{% url 'resolve_report' report.id %}">
-                    {% csrf_token %}
-                    <input type="submit" value="Resolve">
-                </form>
-                
-                {% endif %}
+
                 <br>
                 <div id="align_left"><small>{{ report.date_updated }}</small></div>
 
@@ -106,9 +135,25 @@
                         {% csrf_token %}
                         <input type="text" name="text">
                         <input type="submit" value="Add Comment">
-                        <!--yuliyas-->
-                        <a href="{% url 'discussion_page' report.id %}">Go to Discussion</a>
+                        <br>
+                        <br>
+                        <a href="{% url 'discussion_page' report.id %}" class="dis">Discussion</a>
+                           <br>
+                        <br>
+                        
                     </form>
+
+                    {% if user == report.author or user.is_staff %}
+                    <form method="POST" action="{% url 'delete_report' report.id %}">
+                        {% csrf_token %}
+                        <input type="submit" value="Delete">
+                    </form>
+                    <form method="POST" action="{% url 'resolve_report' report.id %}">
+                        {% csrf_token %}
+                        <input type="submit" value="Resolve">
+                    </form>
+                    
+                    {% endif %}
                     <!--yuliyas-->
                 </div>
             </li>
