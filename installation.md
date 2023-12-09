@@ -127,10 +127,9 @@ After installing Django and django-crispy-forms, follow these steps to install c
 3. **Configure crispy-bootstrap5 in your Django project:**
    ```bash
    # settings.py
-
 CRISPY_ALLOWED_TEMPLATE_PACKS = (
     'bootstrap5',  # Add 'bootstrap5' to use Bootstrap 5
 )
-   ```
+```
 
 Now, you're ready to proceed with setting up and running your project!
