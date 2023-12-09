@@ -107,7 +107,7 @@ INSTALLED_APPS = [
 
 #### Configure crispy-forms in your settings.py
 
-```bash
+
 CRISPY_TEMPLATE_PACK = 'bootstrap5'  # Use 'bootstrap5' or another supported template pack
 
 ### Installing crispy-bootstrap5
