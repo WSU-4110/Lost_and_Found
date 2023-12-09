@@ -164,6 +164,38 @@ After installing Django and django-crispy-forms, follow these steps to install c
    COMPRESS_JS_FILTERS = [
     'compressor.filters.jsmin.JSMinFilter',
    ]
-   ```   
+   ```
+### Installing mysqlclient
+
+1. **Ensure MySQL is installed:** `mysqlclient` requires MySQL to be installed on your system. If you haven't installed MySQL yet, download and install it from the [MySQL Downloads page](https://dev.mysql.com/downloads/).
+
+2. **Install `mysqlclient` using pip:**
+   ```bash
+   pip install mysqlclient
+3. **Verify Installation**
+   ```bash
+   python -m pip show mysqlclient
+4. **Configure Django to use mySQL**
+   ```bash
+   DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'your_database_name',
+        'USER': 'your_database_user',
+        'PASSWORD': 'your_database_password',
+        'HOST': 'localhost',  # Or your database host
+        'PORT': '3306',       # Or your database port
+    }
+   }
+   ```
+### Installing opencv-python
+1. **Install `opencv-python` using pip:**
+   ```bash
+   pip install opencv-python
+   
+2. **Verify Installation**
+   ```bash
+   python -c "import cv2; print(cv2.__version__)"
+
 
 Now, you're ready to proceed with setting up and running your project!
