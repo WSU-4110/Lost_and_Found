@@ -126,10 +126,44 @@ After installing Django and django-crispy-forms, follow these steps to install c
 
 3. **Configure crispy-bootstrap5 in your Django project:**
    ```bash
-   # settings.py
-CRISPY_ALLOWED_TEMPLATE_PACKS = (
-    'bootstrap5',  # Add 'bootstrap5' to use Bootstrap 5
-)
-```
+   CRISPY_ALLOWED_TEMPLATE_PACKS = ('bootstrap5',  # Add 'bootstrap5' to use
+   Bootstrap 5)
+   ```
+### Installing crispy-tailwind
+1. **Instal crispy-tailwind using pip**
+   ```bash
+   pip install crispy-tailwind
+   ```
+2. **Configure crispy-tailwind in your Django project:**
+   ```bash
+   CRISPY_ALLOWED_TEMPLATE_PACKS = (
+    'tailwind',  # Add 'tailwind' to use Tailwind CSS)
+   ```
+3. **Set CRISPY_TEMPLATE_PACK to tailwind:**
+   ```bash
+   CRISPY_TEMPLATE_PACK = 'tailwind'
+   ```
+### Installing Django-compressor
+1. **Install `django-compressor` using pip:**
+   ```bash
+   pip install django-compressor
+   ```
+2. **Add compressor to your Django project's INSTALLED_APPS in the settings.py file:**
+   ```bash
+   INSTALLED_APPS = [
+    # Other installed apps...
+    'compressor',]
+   ```
+3. **Configure django-compressor in your Django project's settings.py:**
+   ```bash
+   COMPRESS_ENABLED = True
+   COMPRESS_CSS_FILTERS = [
+    'compressor.filters.css_default.CssAbsoluteFilter',
+    'compressor.filters.cssmin.rCSSMinFilter',
+   ]
+   COMPRESS_JS_FILTERS = [
+    'compressor.filters.jsmin.JSMinFilter',
+   ]
+   ```   
 
 Now, you're ready to proceed with setting up and running your project!
