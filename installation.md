@@ -5,7 +5,7 @@ This guide provides step-by-step instructions on how to install Python and Djang
 ## Table of Contents
 - [System Requirements](#System_Requirements)
 - [Installation](#installation)
-- [Additional Package Installation](#additional)
+- [Additional Package Installation](#Additional_Package_Installation)
 
 ## System Requirements
 
