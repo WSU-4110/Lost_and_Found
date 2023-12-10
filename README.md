@@ -62,29 +62,10 @@ During the development process, we leveraged various external resources to enhan
 
 We acknowledge the contributions of these external resources in enhancing the overall quality and functionality of the Lost and Found Web App.
 
-## Development Progress
+## Sprint Information
 
-The following functionalities have been successfully implemented:
+[Sprint 1]([https://github.com/username/repository/wiki/Your-Wiki-Page](https://github.com/WSU-4110/Lost_and_Found/wiki/Sprint-1))
 
-- **Filter Posts by Date**
-- **Responsive Web Pages**
-- **Search Post by ItemType and PostID**
-- **Show Personal Post**
-- **Admin Home Page**
-- **Updating Post Status**
-- **Send Confirmation Code to Email**
-- **Show Most Recent Posts on Top**
-- **Community Page**
-- **Profile Page**
-- **Update Chat**
-- **Send Chat**
-- **Admin Signup**
-- **Post Creation**
-- **Admin Log-in**
-- **User Registration**
-- **Log In**
-
-For more details on the development progress, you can refer to the closed issues in the project repository.
 
 ## Future Potential
 
