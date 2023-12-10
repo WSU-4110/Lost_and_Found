@@ -1,6 +1,7 @@
-# Lost and Found 
+#   Lost and Found 
 
-<img width="935" alt="image" src="https://github.com/WSU-4110/Lost_and_Found/assets/74390236/751fe130-89cc-4fcb-872e-fb978572605f">
+![image](https://github.com/WSU-4110/Lost_and_Found/assets/74390236/a4fd60c2-6010-4fc5-9d8f-f7859c9d5cb8)
+
 
 ## Purpose
 
