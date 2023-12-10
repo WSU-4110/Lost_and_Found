@@ -20,7 +20,7 @@ from .models import Report
 from .forms import ReportForm
 from .forms import DiscussionForm
 from .models import Discussion
-import cv2,re,pytesseract
+import cv2,re
 import numpy as np
 from django.utils import timezone
 import pytz
