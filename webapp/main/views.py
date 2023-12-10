@@ -189,7 +189,7 @@ def otp_verification(request):
                     # Clear the session variables related to OTP
                     del request.session['otp']
                     del request.session['otp_time']
-                    return redirect('home')
+                    return redirect('list_report')
                 except Exception as e:
                     # Handle exceptions like duplicate username
                     messages.error(request, f'Error creating user: {e}')
