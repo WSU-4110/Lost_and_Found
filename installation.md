@@ -197,5 +197,5 @@ After installing Django and django-crispy-forms, follow these steps to install c
    ```bash
    python -c "import cv2; print(cv2.__version__)"
 
-
+STOP AND ADD PILLOW
 Now, you're ready to proceed with setting up and running your project!
