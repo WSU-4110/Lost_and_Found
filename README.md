@@ -11,44 +11,6 @@
   - [Sprint Information](#sprint-information)
   - [Future Potential](#future-potential)
 
-- [Getting Started](#getting-started)
-  - [Exclusive to Wayne State](#exclusive-to-wayne-state)
-  - [Secure Login](#secure-login)
-
-- [Lost Something? Post It!](#lost-something-post-it)
-
-- [Find Stuff Easily](#find-stuff-easily)
-  - [Search and Filter](#search-and-filter)
-
-- [All About Community](#all-about-community)
-
-- [Your Own Space](#your-own-space)
-
-- [Admin Superpowers](#admin-superpowers)
-
-- [Chat It Up in the Comment Section](#chat-it-up-in-the-comment-section)
-
-- [Looks Good Everywhere](#looks-good-everywhere)
-
-- [Fresh Updates First](#fresh-updates-first)
-
-- [Technology Stack](#technology-stack)
-  - [Front-end](#front-end)
-  - [Back-end](#back-end)
-
-- [External Resources](#external-resources)
-  - [ChatGPT](#chatgpt)
-  - [Stack Overflow](#stack-overflow)
-  - [Flow Byte](#flow-byte)
-  - [YouTube Videos](#youtube-videos)
-
-- [Sprint Information](#sprint-information)
-  - [Sprint 1](#sprint-1)
-  - [Sprint 2](#sprint-2)
-  - [Sprint 3](#sprint-3)
-
-- [Future Potential](#future-potential)
-
 
 # Overview
 
