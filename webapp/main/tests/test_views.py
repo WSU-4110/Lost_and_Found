@@ -79,7 +79,7 @@ class OTPVerificationViewTest(TestCase):
     def test_otp_verification_success(self):
         # Test OTP verification with correct OTP and not expired
         response = self.client.post(reverse('otp_verification'), {'otp': self.otp})
-        self.assertRedirects(response, reverse('/home'))
+        self.assertRedirects(response, reverse('list_report'))
         self.assertEqual(User.objects.count(), 1)
         self.assertTrue(User.objects.filter(username=self.credentials['username']).exists())
 
