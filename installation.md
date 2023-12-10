@@ -5,8 +5,7 @@ This guide provides step-by-step instructions on how to install Python and Djang
 ## Table of Contents
 - [System Requirements](#System_Requirements)
 - [Installation](#installation)
-- [Configuration](#configuration)
-- [Features](#features)
+- [Additional Package Installation](#additional)
 
 ## System Requirements
 
@@ -24,7 +23,7 @@ Before installing Python and Django, ensure that your system meets the following
 - **Memory (RAM):** At least 2 GB is recommended for Django projects.
 
 
-## Python Installation
+## Installation
 
 ### Installing Python 3.10
 
