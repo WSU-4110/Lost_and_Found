@@ -5,6 +5,7 @@
 # Table of Contents
 
   - [Overview](#overview)
+  - [Installation](https://github.com/WSU-4110/Lost_and_Found/blob/master/installation.md)
   - [What Our App Does](#what-our-app-does)
   - [Technology Stack](#technology-stack)
   - [External Resources](#external-resources)
