@@ -5,7 +5,7 @@ This guide provides step-by-step instructions on how to install Python and Djang
 ## Table of Contents
 - [System Requirements](#System_Requirements)
 - [Installation](#installation)
-- [Additional Package Installation](#Additional_Package_Installation)
+- [Additional_Package_Installation](#Additional_Package_Installation)
 
 ## System Requirements
 
@@ -86,7 +86,7 @@ Once the installation is complete, verify the Django version:
 - Type `python -m django --version` or `python3 -m django --version` and press Enter.
 - The output should display the installed Django version.
 
-## Additional Package Installation
+## Additional_Package_Installation
 
 ### Installation of Django Crispy Forms
 
