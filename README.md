@@ -65,6 +65,8 @@ We acknowledge the contributions of these external resources in enhancing the ov
 ## Sprint Information
 
 [Sprint 1](https://github.com/WSU-4110/Lost_and_Found/wiki/Sprint-1)
+[Sprint 2](https://github.com/WSU-4110/Lost_and_Found/wiki/Sprint-2)
+[Sprint 3](https://github.com/WSU-4110/Lost_and_Found/wiki/Sprint-3)
 
 
 ## Future Potential
