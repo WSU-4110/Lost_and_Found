@@ -1,9 +1,9 @@
-#   Lost and Found 
+# Lost and Found 
 
-![image](https://github.com/WSU-4110/Lost_and_Found/assets/74390236/a4fd60c2-6010-4fc5-9d8f-f7859c9d5cb8)
+<img width="893" alt="image" src="https://github.com/WSU-4110/Lost_and_Found/assets/74390236/957b799a-c9a5-483a-b9ac-23e5931250aa">
 
 
-## Purpose
+# Overview
 
 Hey everyone,
 
@@ -17,41 +17,43 @@ Plus, we're all about making communication smooth and hassle-free. No more runni
 
 Our goal is simple: make finding lost items on campus a breeze. We're excited to see how our app can make life a little easier at Wayne State University.
 
-## Functionalities
+# What Our App Does
 
-### 1. User Registration and Authentication
-   - Users, both students and faculty, can register using their university email addresses for account verification.
-   - Authentication ensures that only verified university affiliates have access to the application.
+Hey everyone at Wayne State University, let's dive into what our app can do for you:
 
-### 2. Post Creation
-   - Users can create a post when they lose an item, providing a detailed description, date and time, and the last known location.
+### 1. Getting Started
+#### Exclusive to Wayne State
+- **Sign Up:** If you're a student or faculty member, use your uni email to join. This keeps our community exclusive to Wayne State.
+- **Log In Securely:** Our login process ensures that only our uni folks get access, keeping everything safe.
+#### Secure Login
+- **One-Time Password (OTP):**  For added security, you'll receive a OTP in your email when you Signup.
+***
+### 2. Lost Something? Post It!
+- Had an 'oops' moment and lost an item? Create a post with all the details - what you lost, when, and where.
+***
+### 3. Find Stuff Easily
+- **Search and Filter:** Look for lost items by date, type, or who posted. Our filters help you zero in on what you're looking for, fast.
+***
+### 4. All About Community
+- We have a special community page where everyone can connect, share, and help each other out.
+***
+### 5. Your Own Space
+- On your personal profile page, you can manage all your posts and keep tabs on things.
+***
+### 6. Admin Superpowers
+- For our admins: you get a dedicated dashboard to manage posts and keep everything up-to-date.
+***
+### 7. Chat It Up in the comment section
+- Found something? Directly post or comment on the post through the website. It’s all about reconnecting people with their stuff.
+***
+### 8. Looks Good Everywhere
+- Our app is designed to be responsive, so it looks and works great on any device - phones, tablets, or laptops.
+***
 
-### 3. Post Search and Filtering
-   - Users can search for lost items based on various criteria such as date, item type, user, and post ID.
-   - A filter functionality allows users to narrow down search results.
-
-### 4. Community Page
-   - A dedicated page for community engagement, fostering a sense of unity among users.
-
-### 5. Profile Page
-   - Users have individual profile pages where they can manage their posts.
-
-### 6. Admin Features
-   - Admins have a specialized dashboard with functionalities such as an admin home page, admin signup, and admin login.
-   - Admins can update post status to facilitate efficient item tracking.
-
-### 7. Comment Functionality
-   - A comment feature enables direct communication between the finder and owner of a lost item.
-   - Users can update and send messages on the discussion page related to their lost and found items.
-
-### 8. Responsive Web Pages
-   - The application includes responsive web pages to ensure a seamless user experience across different devices.
-
-### 9. OTP via Email
-   - Users receive a One Time Password via email address for verification.
-
-### 10. Display Most Recent Posts First
-   - The website displays the most recent lost item posts at the top for quick visibility.
+### 9. Fresh Updates First
+- The latest posts about lost items are always displayed at the top, so you get the most recent updates first.
+***
+***
 
 ## Technology Stack
 
