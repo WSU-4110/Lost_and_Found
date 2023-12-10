@@ -4,7 +4,6 @@
 
 # Table of Contents
 
-- [Lost and Found](#lost-and-found)
   - [Overview](#overview)
   - [What Our App Does](#what-our-app-does)
   - [Technology Stack](#technology-stack)
