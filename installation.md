@@ -3,11 +3,11 @@
 This guide provides step-by-step instructions on how to install Python and Django for Lost and Found webapp.
 
 ## Table of Contents
-- [System Requirements](#System_Requirements)
+- [System_Requirements](#System_Requirements)
 - [Installation](#installation)
 - [Additional_Package_Installation](#Additional_Package_Installation)
 
-## System Requirements
+## System_Requirements
 
 Before installing Python and Django, ensure that your system meets the following requirements:
 
