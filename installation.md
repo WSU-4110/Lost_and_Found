@@ -2,6 +2,12 @@
 
 This guide provides step-by-step instructions on how to install Python and Django for Lost and Found webapp.
 
+## Table of Contents
+- [System Requirements](#System_Requirements)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Features](#features)
+
 ## System Requirements
 
 Before installing Python and Django, ensure that your system meets the following requirements:
@@ -14,9 +20,7 @@ Before installing Python and Django, ensure that your system meets the following
 
 ### For Django 4.2
 
-- **Python:** Compatible with Python 3.10 (as specified in this guide).
-- **Operating System:** Compatible with Windows, macOS, or Linux distributions.
-- **Disk Space:** Additional space required for Django and project files.
+- **Python:** Compatible with Python 3.10 (as specified in this guide)._ required for Django and project files.
 - **Memory (RAM):** At least 2 GB is recommended for Django projects.
 
 
