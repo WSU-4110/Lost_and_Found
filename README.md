@@ -46,7 +46,7 @@ The technology stack for this mobile application involves both front-end and bac
 
 - **Front-end:** Developed using CSS and HTML.
   
-- **Back-end:** Utilizes Java and a SQL database to store user data.
+- **Back-end:** Utilizes Python and a SQL database to store user data.
 
 ## External Resources
 
