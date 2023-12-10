@@ -1,13 +1,23 @@
-# Lost and Found Web App
+# Lost and Found 
 
 ## Purpose
 
-This web application is designed to assist university students and faculty at Wayne State University in finding lost items within the campus. The primary motivation behind this project is to address the limitations of the traditional physical lost and found system. By providing a digital platform, the app aims to offer real-time updates, efficient communication, and extended accessibility for reporting and retrieving lost items.
+Hey everyone,
+
+We've cooked up something special for the folks at Wayne State University – a handy web app that's all about helping students and faculty find their lost items right on campus.
+
+Here's the deal: We noticed the old-school way of dealing with lost and found items just wasn't cutting it. You know, those physical lost and found boxes? They're kind of limited. That's where our app steps in. It's like a digital upgrade to make life easier for everyone on campus.
+
+What we're bringing to the table is real-time info on lost items. Lost your keys or left a book somewhere? No problem. With our app, you can report it or check if someone else has found it, all with a few taps on your phone. And if you're the one who's found something, you can let everyone know through the app too.
+
+Plus, we're all about making communication smooth and hassle-free. No more running around or waiting forever to get your stuff back. And the best part? You can access our app anytime, anywhere. It’s like having a lost and found in your pocket!
+
+Our goal is simple: make finding lost items on campus a breeze. We're excited to see how our app can make life a little easier at Wayne State University.
 
 ## Functionalities
 
 ### 1. User Registration and Authentication
-   - Users, both students, and faculty, can register using their university email addresses for account verification.
+   - Users, both students and faculty, can register using their university email addresses for account verification.
    - Authentication ensures that only verified university affiliates have access to the application.
 
 ### 2. Post Creation
