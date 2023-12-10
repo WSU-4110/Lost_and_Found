@@ -106,9 +106,11 @@ Hey everyone at Wayne State University, let's dive into what our app can do for 
 
 The technology stack for this mobile application involves both front-end and back-end development.
 
-- **Front-end:** Developed using CSS and HTML.
+- **Front-end:** HTML, CSS -> Framework: Flowbite
   
-- **Back-end:** Utilizes Python and a SQL database to store user data.
+- **Back-end:** Python -> Framework: Django
+  
+- **Database:** MYSQL Host: AWS
 
 ## External Resources
 
