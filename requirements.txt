@@ -6,3 +6,4 @@ django-compressor
 mysqlclient
 opencv-python
 Pillow
+pytz
