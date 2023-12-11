@@ -4,6 +4,7 @@
 
 # Table of Contents
 
+
   - [Overview](#overview)
   - [Contributors](#contributors)
   - [Installation](https://github.com/WSU-4110/Lost_and_Found/blob/master/installation.md)
