@@ -5,6 +5,7 @@
 # Table of Contents
 
   - [Overview](#overview)
+  - [Contributors](#contributors)
   - [Installation](https://github.com/WSU-4110/Lost_and_Found/blob/master/installation.md)
   - [What Our App Does](#what-our-app-does)
   - [Technology Stack](#technology-stack)
@@ -26,6 +27,16 @@ What we're bringing to the table is real-time info on lost items. Lost your keys
 Plus, we're all about making communication smooth and hassle-free. No more running around or waiting forever to get your stuff back. And the best part? You can access our app anytime, anywhere. It’s like having a lost and found in your pocket!
 
 Our goal is simple: make finding lost items on campus a breeze. We're excited to see how our app can make life a little easier at Wayne State University.
+
+# Contributors
+1. Ahmed Minhaj (hi4718)
+   Email: ahmed.minhaj@wayne.edu
+2. Yuliya Vaskiv
+   Email: yuliyavaskiv@wayne.edu
+3. Nadin Razoki
+   Email: nadinrazoki@wayne.edu
+4. Naje Safford
+   Email: naje.safford@wayne.edu
 
 # What Our App Does
 
