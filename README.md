@@ -29,13 +29,13 @@ Plus, we're all about making communication smooth and hassle-free. No more runni
 Our goal is simple: make finding lost items on campus a breeze. We're excited to see how our app can make life a little easier at Wayne State University.
 
 # Contributors
-1. Ahmed Minhaj
+1. Ahmed Minhaj<br />
    Email: ahmed.minhaj@wayne.edu
-2. Yuliya Vaskiv
+2. Yuliya Vaskiv<br />
    Email: yuliyavaskiv@wayne.edu
-3. Nadin Razoki
+3. Nadin Razoki<br />
    Email: nadinrazoki@wayne.edu
-4. Naje Safford
+4. Naje Safford<br />
    Email: naje.safford@wayne.edu
 
 # What Our App Does
